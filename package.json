@@ -1,0 +1,19 @@
+{
+  "name": "errors",
+  "version": "0.0.1",
+  "description": "repositorio contendo todos os erros da Ziro",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ziro-app/Errors.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ziro-app/Errors/issues"
+  },
+  "homepage": "https://github.com/ziro-app/Errors#readme"
+}
