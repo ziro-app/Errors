@@ -1,13 +1,13 @@
 import { ZiroMessage, ZiroMessageData } from "../"
 
-//erros de frontend começam com o número 0
+//As mensagens de frontend tem o código 0XXX
 
 type P = { [key: string]: ZiroMessageData }
+type R<V> = { [key in keyof V]: ZiroMessage }
 
-const createClassObjects = function<V>(pack: P): V {
-    return Object.entries(pack).reduce((acc,[n,m]) => ({ ...acc, [n]: new ZiroMessage(m) }),{} as V)
+const createClassObjects = function<V extends P>(pack: V): R<V> {
+    return Object.entries(pack).reduce((acc,[n,m]) => ({ ...acc, [n]: new ZiroMessage(m) }),{} as R<V>)
 }
 
 import * as _Antifraude from "./antifraude"
-type AntifraudeType = { [key in keyof typeof _Antifraude]: ZiroMessage }
-export const Antifraude: AntifraudeType = createClassObjects<AntifraudeType>(_Antifraude)
+export const Antifraude = createClassObjects(_Antifraude)

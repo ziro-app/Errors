@@ -1,19 +1,19 @@
 {
-  "name": "errors",
+  "name": "ziro-messages",
   "version": "0.0.2",
-  "description": "repositorio contendo todos os erros da Ziro",
+  "description": "repositorio contendo todos as mensagens da Ziro",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ziro-app/Errors.git"
+    "url": "git+https://github.com/ziro-app/Messages.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ziro-app/Errors/issues"
+    "url": "https://github.com/ziro-app/Messages/issues"
   },
-  "homepage": "https://github.com/ziro-app/Errors#readme"
+  "homepage": "https://github.com/ziro-app/Messages#readme"
 }
