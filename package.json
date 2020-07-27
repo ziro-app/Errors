@@ -1,6 +1,6 @@
 {
   "name": "errors",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "repositorio contendo todos os erros da Ziro",
   "main": "index.ts",
   "scripts": {

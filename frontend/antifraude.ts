@@ -1,6 +1,7 @@
 import { ZiroMessageData } from "../"
 
-export const MISSING_EXP_DATE: ZiroMessageData = {
+export const 
+MISSING_EXP_DATE: ZiroMessageData = {
     code: "0001",
     type: "destructive",
     title: "Data de expedição não encontrada",
