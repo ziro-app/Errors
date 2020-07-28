@@ -8,7 +8,7 @@ export type ZiroWaitingMessageProps = ZiroMessageProps & ZiroWaitingMessageData
 
 export class ZiroWaitingMessage extends ZiroMessage implements ZiroWaitingMessageData {
 
-    promise?: Promise<void>
+    promise?: Promise<any>
 
     constructor(props: ZiroWaitingMessageProps) {
         const { promise, ...rest } = props
@@ -17,7 +17,7 @@ export class ZiroWaitingMessage extends ZiroMessage implements ZiroWaitingMessag
         this.withPromise = this.withPromise.bind(this)
     }
 
-    withPromise(promise: Promise<void>) {
+    withPromise(promise: Promise<any>) {
         this.promise = promise
         return this
     }
