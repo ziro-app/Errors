@@ -18,7 +18,9 @@ type AsyncAction = {
     text: string
 }
 
-type Action = () => (void|ZiroMessage)|AsyncAction
+type SyncAction = () => (void|ZiroMessage)
+
+type Action = SyncAction|AsyncAction
 
 export type Button = {
     title: string
@@ -45,6 +47,8 @@ type Buttons = {
 type ZiroMessageProps = ZiroMessageData & Buttons & { name: string }
 
 export class ZiroMessage implements ZiroMessageProps {
+
+    __isZiroMessage = true
 
     name: string
     code: string
