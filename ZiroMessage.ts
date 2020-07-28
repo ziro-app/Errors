@@ -32,7 +32,7 @@ export class ZiroMessage implements ZiroMessageProps {
     internalDescription: string
 
     constructor(props: ZiroMessageProps) {
-        this.name = name
+        this.name = props.name
         this.code = props.code
         this.title = props.title
         this.illustration = props.illustration
