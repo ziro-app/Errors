@@ -1,6 +1,6 @@
 import { ZiroMessageData, ZiroPromptMessageData } from "../../"
 
-//As mensagens de antifraude tem o código 00XX
+//As mensagens de antifraude prompt tem o código 000X - 004X
 
 type Message = ZiroMessageData & ZiroPromptMessageData
 
