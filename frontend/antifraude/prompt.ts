@@ -1,4 +1,4 @@
-import { ZiroMessageData, ZiroPromptMessageData } from "../"
+import { ZiroMessageData, ZiroPromptMessageData } from "../../"
 
 //As mensagens de antifraude tem o código 00XX
 
