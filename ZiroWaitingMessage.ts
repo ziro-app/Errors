@@ -1,7 +1,7 @@
 import { ZiroMessage, ZiroMessageProps } from "./ZiroMessage"
 
 export interface ZiroWaitingMessageData {
-    promise?: Promise<void>
+    promise?: Promise<any>
 }
 
 export type ZiroWaitingMessageProps = ZiroMessageProps & ZiroWaitingMessageData
