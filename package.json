@@ -1,6 +1,6 @@
 {
   "name": "ziro-messages",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "repositorio contendo todos as mensagens da Ziro",
   "main": "index.ts",
   "scripts": {
