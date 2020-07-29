@@ -1,11 +1,11 @@
-import { ZiroMessage, ZiroMessageProps, ZiroMessageData } from "./ZiroMessage"
+import { ZiroMessage, ZiroProps, ZiroData } from "./ZiroMessage"
 
 export type Button = {
     title: string
-    action: () => void
+    action: (() => void)|ZiroPromptMessage<string>
 }
 
-export interface ZiroPromptMessageData {
+interface ZiroPromptData {
     userResolution: string
     internalDescription: string
 }
@@ -15,15 +15,17 @@ type Buttons = {
     secondButton?: Button
 }
 
-type ZiroPromptMessageProps<N> = ZiroMessageProps<N> & ZiroPromptMessageData & Buttons
+export type ZiroPromptFullData = ZiroData & ZiroPromptData
 
-export class ZiroPromptMessage<N> extends ZiroMessage<N> implements ZiroPromptMessageProps<N> {
+type ZiroPromptProps<N> = ZiroProps<N> & ZiroPromptData & Buttons
+
+export class ZiroPromptMessage<N> extends ZiroMessage<N> implements ZiroPromptProps<N> {
 
     userResolution: string
     firstButton?: Button
     secondButton?: Button
 
-    constructor(props: ZiroPromptMessageProps<N>) {
+    constructor(props: ZiroPromptProps<N>) {
         const { userResolution, firstButton, secondButton, ...rest } = props
         super(rest)
         this.userResolution = userResolution
@@ -39,12 +41,12 @@ export class ZiroPromptMessage<N> extends ZiroMessage<N> implements ZiroPromptMe
         return this
     }
 
-    set<K extends keyof (ZiroPromptMessageData & ZiroMessageData)>(variable: K, value: (ZiroPromptMessageData&ZiroMessageData)[K]) {
+    set<K extends keyof ZiroPromptFullData>(variable: K, value: ZiroPromptFullData[K]) {
         this[variable] = value as any
         return this
     }
 
-    get() {
+    getData(): Omit<ZiroPromptProps<N>,"firstButton"|"secondButton"> {
         return {
             name: this.name,
             code: this.code,
@@ -54,6 +56,6 @@ export class ZiroPromptMessage<N> extends ZiroMessage<N> implements ZiroPromptMe
             userDescription: this.userDescription,
             userResolution: this.userResolution,
             internalDescription: this.internalDescription,
-        } as ZiroPromptMessageData & ZiroMessageData & { name: N }
+        }
     }
 }

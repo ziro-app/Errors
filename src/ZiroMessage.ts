@@ -1,4 +1,4 @@
-type Illustration = 
+export type Illustration = 
     |"paymentSuccess"
     |"paymentError"
     |"errorLoading"
@@ -12,7 +12,7 @@ type Illustration =
     |"waiting"
     |"noData"
 
-export interface ZiroMessageData {
+export interface ZiroData {
     code: string
     type: "neutral"|"destructive"|"success"
     title: string
@@ -21,9 +21,9 @@ export interface ZiroMessageData {
     internalDescription: string
 }
 
-export type ZiroMessageProps<N> = ZiroMessageData & { name: N }
+export type ZiroProps<N> = ZiroData & { name: N }
 
-export class ZiroMessage<N> implements ZiroMessageProps<N> {
+export class ZiroMessage<N> implements ZiroProps<N> {
 
     name: N
     type: "neutral"|"destructive"|"success"
@@ -33,7 +33,7 @@ export class ZiroMessage<N> implements ZiroMessageProps<N> {
     userDescription: string
     internalDescription: string
 
-    constructor(props: ZiroMessageProps<N>) {
+    constructor(props: ZiroProps<N>) {
         this.name = props.name
         this.type = props.type
         this.code = props.code
@@ -44,12 +44,12 @@ export class ZiroMessage<N> implements ZiroMessageProps<N> {
         this.set = this.set.bind(this)
     }
 
-    set<K extends keyof ZiroMessageData>(variable: K, value: ZiroMessageData[K]) {
+    set<K extends keyof ZiroData>(variable: K, value: ZiroData[K]) {
         this[variable] = value as any
         return this
     }
 
-    get() {
+    getData(): ZiroProps<N> {
         return {
             name: this.name,
             type: this.type,
@@ -58,6 +58,6 @@ export class ZiroMessage<N> implements ZiroMessageProps<N> {
             illustration: this.illustration,
             userDescription: this.userDescription,
             internalDescription: this.internalDescription,
-        } as ZiroMessageData & { name: N }
+        }
     }
 }

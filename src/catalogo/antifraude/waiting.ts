@@ -1,9 +1,9 @@
-import { WMessage } from "../../utils"
+import { ZiroWaitingFullData } from "../../ZiroWaitingMessage"
 
 //As mensagens de antifraude prompt tem o código 005X - 009X
 
 export const
-ANALYZING_DOC: WMessage = {
+ANALYZING_DOC: ZiroWaitingFullData = {
     code: "0051",
     type: "neutral",
     title: "Analisando documento",
@@ -11,7 +11,7 @@ ANALYZING_DOC: WMessage = {
     userDescription: "A Ziro está analisando a imagem do documento fornecido",
     internalDescription: "Fazendo upload da foto do documento e a enviando para nextcode"
 },
-ANALYZING_FACE: WMessage = {
+ANALYZING_FACE: ZiroWaitingFullData = {
     code: "0052",
     type: "neutral",
     title: "Analisado selfie",

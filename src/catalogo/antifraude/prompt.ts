@@ -1,9 +1,9 @@
-import { PMessage } from "../../utils"
+import { ZiroPromptFullData } from "../../ZiroPromptMessage"
 
 //As mensagens de antifraude prompt tem o código 000X - 004X
 
 export const 
-MISSING_EXP_DATE: PMessage  = {
+MISSING_EXP_DATE: ZiroPromptFullData  = {
     code: "0001",
     type: "destructive",
     title: "Data de expedição não encontrada",
@@ -12,7 +12,7 @@ MISSING_EXP_DATE: PMessage  = {
     userResolution: "Envie uma nova imagem do documento.",
     internalDescription: "A resposta da nextcode não contém uma data de expedição válida para esse documento"
 },
-EXPIRED_DOC: PMessage = {
+EXPIRED_DOC: ZiroPromptFullData = {
     code: "0002",
     type: "destructive",
     title: "Documento expirado",
@@ -21,7 +21,7 @@ EXPIRED_DOC: PMessage = {
     userResolution: "Envie uma imagem de um documento mais recente.",
     internalDescription: "O algoritmo de antifraude detectou que a data de expedição excede aquilo que foi estipulado no código, consulte um dev para saber mais"
 },
-NO_FACE_OBJECT: PMessage = {
+NO_FACE_OBJECT: ZiroPromptFullData = {
     code: "0003",
     type: "destructive",
     title: "Rosto não encontrado",
@@ -30,7 +30,7 @@ NO_FACE_OBJECT: PMessage = {
     userResolution: "Envie um documento com foto.",
     internalDescription: "A resposta da nextcode não contém nenhum objeto do tipo face, o que indica que a imagem não contém a foto de um rosto"
 },
-CANNOT_ANALYZE_FACE: PMessage = {
+CANNOT_ANALYZE_FACE: ZiroPromptFullData = {
     code: "0004",
     type: "destructive",
     title: "Problema na análise",

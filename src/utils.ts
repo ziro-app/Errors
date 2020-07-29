@@ -1,21 +1,20 @@
-import { ZiroPromptMessage, ZiroMessageData, ZiroPromptMessageData, ZiroWaitingMessage, ZiroWaitingMessageData } from "./"
+import { ZiroPromptFullData, ZiroPromptMessage } from "./ZiroPromptMessage"
+import { ZiroWaitingFullData, ZiroWaitingMessage } from "./ZiroWaitingMessage"
 
-type PP = { [key: string]: ZiroMessageData&ZiroPromptMessageData }
-type RP<V> = { [K in keyof V]: ZiroPromptMessage<K> }
+type PromptDataObject = { [key: string]: ZiroPromptFullData }
+type PromptClassObject<V> = { [K in keyof V]: ZiroPromptMessage<K> }
 
-export const createClassPromptObjects = function<V extends PP>(pack: V): RP<V> {
-    return (<[string,ZiroMessageData&ZiroPromptMessageData][]>(<any>Object).entries(pack))
-        .reduce((acc,[n,m]) => ({ ...acc, [n]: new ZiroPromptMessage({ ...m, name: n }) }),{} as RP<V>)
+type Entries<V> = [string,V][]
+
+export const createPromptClassObject = function<V extends PromptDataObject>(pack: V): PromptClassObject<V> {
+    return (<Entries<ZiroPromptFullData>>(<any>Object).entries(pack))
+        .reduce((acc,[n,m]) => ({ ...acc, [n]: new ZiroPromptMessage({ ...m, name: n }) }),{} as PromptClassObject<V>)
 }
 
-type PW = { [key: string]: ZiroMessageData&ZiroWaitingMessageData }
-type RW<V> = { [K in keyof V]: ZiroWaitingMessage<K> }
+type WaitingDataObject = { [key: string]: ZiroWaitingFullData }
+type WaitingClassObject<V> = { [K in keyof V]: ZiroWaitingMessage<K> }
 
-export const createClassWaitingObjects = function<V extends PW>(pack: V): RW<V> {
-    return (<[string,ZiroMessageData&ZiroPromptMessageData][]>(<any>Object).entries(pack))
-        .reduce((acc,[n,m]) => ({ ...acc, [n]: new ZiroWaitingMessage({ ...m, name: n }) }),{} as RW<V>)
+export const createWaitingClassObject = function<V extends WaitingDataObject>(pack: V): WaitingClassObject<V> {
+    return (<Entries<ZiroWaitingFullData>>(<any>Object).entries(pack))
+        .reduce((acc,[n,m]) => ({ ...acc, [n]: new ZiroWaitingMessage({ ...m, name: n }) }),{} as WaitingClassObject<V>)
 }
-
-export type WMessage = ZiroMessageData & ZiroWaitingMessageData
-
-export type PMessage = ZiroMessageData & ZiroPromptMessageData
