@@ -1,1 +1,3 @@
-export * as antifraude from "./antifraude"
+import * as antifraude from "./antifraude"
+
+export { antifraude }
