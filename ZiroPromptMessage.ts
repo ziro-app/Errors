@@ -6,7 +6,6 @@ export type Button = {
 }
 
 export interface ZiroPromptMessageData {
-    type: "neutral"|"destructive"|"success"
     userResolution: string
     internalDescription: string
 }
@@ -16,19 +15,17 @@ type Buttons = {
     secondButton?: Button
 }
 
-type ZiroPromptMessageProps = ZiroMessageProps & ZiroPromptMessageData & Buttons
+type ZiroPromptMessageProps<N> = ZiroMessageProps<N> & ZiroPromptMessageData & Buttons
 
-export class ZiroPromptMessage extends ZiroMessage implements ZiroPromptMessageProps {
+export class ZiroPromptMessage<N> extends ZiroMessage<N> implements ZiroPromptMessageProps<N> {
 
-    type: "neutral"|"destructive"|"success"
     userResolution: string
     firstButton?: Button
     secondButton?: Button
 
-    constructor(props: ZiroPromptMessageProps) {
-        const { type, userResolution, firstButton, secondButton, ...rest } = props
+    constructor(props: ZiroPromptMessageProps<N>) {
+        const { userResolution, firstButton, secondButton, ...rest } = props
         super(rest)
-        this.type = type
         this.userResolution = userResolution
         this.firstButton = firstButton
         this.secondButton = secondButton
@@ -57,6 +54,6 @@ export class ZiroPromptMessage extends ZiroMessage implements ZiroPromptMessageP
             userDescription: this.userDescription,
             userResolution: this.userResolution,
             internalDescription: this.internalDescription,
-        } as ZiroPromptMessageData & ZiroMessageData & { name: string }
+        } as ZiroPromptMessageData & ZiroMessageData & { name: N }
     }
 }

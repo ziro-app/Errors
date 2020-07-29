@@ -4,13 +4,13 @@ export interface ZiroWaitingMessageData {
     promise?: Promise<any>
 }
 
-export type ZiroWaitingMessageProps = ZiroMessageProps & ZiroWaitingMessageData
+export type ZiroWaitingMessageProps<N> = ZiroMessageProps<N> & ZiroWaitingMessageData
 
-export class ZiroWaitingMessage extends ZiroMessage implements ZiroWaitingMessageData {
+export class ZiroWaitingMessage<N> extends ZiroMessage<N> implements ZiroWaitingMessageData {
 
     promise?: Promise<any>
 
-    constructor(props: ZiroWaitingMessageProps) {
+    constructor(props: ZiroWaitingMessageProps<N>) {
         const { promise, ...rest } = props
         super(rest)
         this.promise = promise

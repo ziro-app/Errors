@@ -14,25 +14,28 @@ type Illustration =
 
 export interface ZiroMessageData {
     code: string
+    type: "neutral"|"destructive"|"success"
     title: string
     illustration: Illustration
     userDescription: string
     internalDescription: string
 }
 
-export type ZiroMessageProps = ZiroMessageData & { name: string }
+export type ZiroMessageProps<N> = ZiroMessageData & { name: N }
 
-export class ZiroMessage implements ZiroMessageProps {
+export class ZiroMessage<N> implements ZiroMessageProps<N> {
 
-    name: string
+    name: N
+    type: "neutral"|"destructive"|"success"
     code: string
     title: string
     illustration: Illustration
     userDescription: string
     internalDescription: string
 
-    constructor(props: ZiroMessageProps) {
+    constructor(props: ZiroMessageProps<N>) {
         this.name = props.name
+        this.type = props.type
         this.code = props.code
         this.title = props.title
         this.illustration = props.illustration
@@ -49,11 +52,12 @@ export class ZiroMessage implements ZiroMessageProps {
     get() {
         return {
             name: this.name,
+            type: this.type,
             code: this.code,
             title: this.title,
             illustration: this.illustration,
             userDescription: this.userDescription,
             internalDescription: this.internalDescription,
-        } as ZiroMessageData & { name: string }
+        } as ZiroMessageData & { name: N }
     }
 }
