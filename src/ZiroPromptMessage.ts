@@ -21,9 +21,9 @@ type ZiroPromptProps<N> = ZiroProps<N> & ZiroPromptData & Buttons
 
 export class ZiroPromptMessage<N> extends ZiroMessage<N> implements ZiroPromptProps<N> {
 
-    userResolution: string
-    firstButton?: Button
-    secondButton?: Button
+    readonly userResolution: string
+    readonly firstButton?: Button
+    readonly secondButton?: Button
 
     constructor(props: ZiroPromptProps<N>) {
         const { userResolution, firstButton, secondButton, ...rest } = props
@@ -36,26 +36,24 @@ export class ZiroPromptMessage<N> extends ZiroMessage<N> implements ZiroPromptPr
     }
 
     withButtons(buttons: [Button]|[Button,Button]) {
-        this.firstButton = buttons[0]
-        this.secondButton = buttons[1]
-        return this
+        return new ZiroPromptMessage({
+            ...this.getData(),
+            firstButton: buttons[0],
+            secondButton: buttons[1]
+        })
     }
 
     set<K extends keyof ZiroPromptFullData>(variable: K, value: ZiroPromptFullData[K]) {
-        this[variable] = value as any
-        return this
+        return new ZiroPromptMessage({
+            ...this.getData(),
+            [variable]: value
+        })
     }
 
     getData(): Omit<ZiroPromptProps<N>,"firstButton"|"secondButton"> {
         return {
-            name: this.name,
-            code: this.code,
-            type: this.type,
-            title: this.title,
-            illustration: this.illustration,
-            userDescription: this.userDescription,
-            userResolution: this.userResolution,
-            internalDescription: this.internalDescription,
+            ...super.getData(),
+            userResolution: this.userResolution
         }
     }
 }

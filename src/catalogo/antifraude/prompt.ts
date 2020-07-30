@@ -3,8 +3,17 @@ import { ZiroPromptFullData } from "../../ZiroPromptMessage"
 //As mensagens de antifraude prompt tem o código 000X - 004X
 
 export const 
+
+/**
+ * REGISTER CARD - 0001 - 0015
+ */
+
+/**
+ * UPLOAD DOCUMENT - 0026 - 0040
+ */
+
 MISSING_EXP_DATE: ZiroPromptFullData  = {
-    code: "0001",
+    code: "0026",
     type: "destructive",
     title: "Data de expedição não encontrada",
     illustration: "paymentError",
@@ -13,7 +22,7 @@ MISSING_EXP_DATE: ZiroPromptFullData  = {
     internalDescription: "A resposta da nextcode não contém uma data de expedição válida para esse documento"
 },
 EXPIRED_DOC: ZiroPromptFullData = {
-    code: "0002",
+    code: "0027",
     type: "destructive",
     title: "Documento expirado",
     illustration: "paymentError",
@@ -22,7 +31,7 @@ EXPIRED_DOC: ZiroPromptFullData = {
     internalDescription: "O algoritmo de antifraude detectou que a data de expedição excede aquilo que foi estipulado no código, consulte um dev para saber mais"
 },
 NO_FACE_OBJECT: ZiroPromptFullData = {
-    code: "0003",
+    code: "0028",
     type: "destructive",
     title: "Rosto não encontrado",
     illustration: "paymentError",
@@ -31,7 +40,7 @@ NO_FACE_OBJECT: ZiroPromptFullData = {
     internalDescription: "A resposta da nextcode não contém nenhum objeto do tipo face, o que indica que a imagem não contém a foto de um rosto"
 },
 CANNOT_ANALYZE_FACE: ZiroPromptFullData = {
-    code: "0004",
+    code: "0029",
     type: "destructive",
     title: "Problema na análise",
     illustration: "paymentError",
@@ -39,3 +48,11 @@ CANNOT_ANALYZE_FACE: ZiroPromptFullData = {
     userResolution: "Envie uma nova imagem do documento, sem reflexos e com boa iluminação.",
     internalDescription: "A resposta da nextcode contém um erro no objeto face, o que indica qua a face não pode ser analisada e portanto não poderá ser comparada com a selfie"
 }
+
+/**
+ * UPLOAD SELFIE - 0051 - 0065
+ */
+
+ /**
+  * COMMON - 0076 - 0090
+  */

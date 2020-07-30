@@ -12,6 +12,8 @@ export type Illustration =
     |"waiting"
     |"noData"
 
+type AdditionalData = { [key: string]: any }
+
 export interface ZiroData {
     code: string
     type: "neutral"|"destructive"|"success"
@@ -19,19 +21,21 @@ export interface ZiroData {
     illustration: Illustration
     userDescription: string
     internalDescription: string
+    additionalData?: AdditionalData
 }
 
 export type ZiroProps<N> = ZiroData & { name: N }
 
 export class ZiroMessage<N> implements ZiroProps<N> {
 
-    name: N
-    type: "neutral"|"destructive"|"success"
-    code: string
-    title: string
-    illustration: Illustration
-    userDescription: string
-    internalDescription: string
+    readonly name: N
+    readonly type: "neutral"|"destructive"|"success"
+    readonly code: string
+    readonly title: string
+    readonly illustration: Illustration
+    readonly userDescription: string
+    readonly internalDescription: string
+    readonly additionalData ?: AdditionalData
 
     constructor(props: ZiroProps<N>) {
         this.name = props.name
@@ -41,12 +45,16 @@ export class ZiroMessage<N> implements ZiroProps<N> {
         this.illustration = props.illustration
         this.userDescription = props.userDescription
         this.internalDescription = props.internalDescription
+        this.additionalData = props.additionalData
         this.set = this.set.bind(this)
+        this.withAdditionalData = this.withAdditionalData.bind(this)
     }
 
     set<K extends keyof ZiroData>(variable: K, value: ZiroData[K]) {
-        this[variable] = value as any
-        return this
+        return new ZiroMessage({
+            ...this.getData(),
+            [variable]: value
+        })
     }
 
     getData(): ZiroProps<N> {
@@ -58,6 +66,14 @@ export class ZiroMessage<N> implements ZiroProps<N> {
             illustration: this.illustration,
             userDescription: this.userDescription,
             internalDescription: this.internalDescription,
+            additionalData: this.additionalData
         }
+    }
+
+    withAdditionalData(data: AdditionalData) {
+        return new ZiroMessage({
+            ...this.getData(),
+            additionalData: data
+        })
     }
 }
