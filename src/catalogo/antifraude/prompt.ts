@@ -90,7 +90,7 @@ UNRECOGNIZED_FACE_OBJECT: UploadDocumentPromptData<"0033"> = {
     userResolution: "Entre em contato com o suporte.",
     internalDescription: "A resposta da nextcode contém um objeto desconhecido, entre em contato com os devs."
 },
-FIRST_NAME_MISTMACTH: UploadDocumentPromptData<"0034"> = {
+FIRST_NAME_MISMATCH: UploadDocumentPromptData<"0034"> = {
     code: "0034",
     type: "destructive",
     title: "O documento nõo pertence ao portador",
@@ -99,7 +99,7 @@ FIRST_NAME_MISTMACTH: UploadDocumentPromptData<"0034"> = {
     userResolution: "",
     internalDescription: "",
 },
-LAST_NAME_MISTMACTH: UploadDocumentPromptData<"0035"> = {
+LAST_NAME_MISMATCH: UploadDocumentPromptData<"0035"> = {
     code: "0035",
     type: "destructive",
     title: "O documento nõo pertence ao portador",
