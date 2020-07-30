@@ -2,7 +2,7 @@ import { ZiroMessage, ZiroProps, ZiroData } from "./ZiroMessage"
 
 export type Button = {
     title: string
-    action: (() => void)|ZiroPromptMessage<string>
+    action: () => (void|ZiroPromptMessage<string,string>)
 }
 
 interface ZiroPromptData {
@@ -15,17 +15,17 @@ type Buttons = {
     secondButton?: Button
 }
 
-export type ZiroPromptFullData = ZiroData & ZiroPromptData
+export type ZiroPromptFullData<C> = ZiroData<C> & ZiroPromptData
 
-type ZiroPromptProps<N> = ZiroProps<N> & ZiroPromptData & Buttons
+type ZiroPromptProps<C,N> = ZiroProps<C,N> & ZiroPromptData & Buttons
 
-export class ZiroPromptMessage<N> extends ZiroMessage<N> implements ZiroPromptProps<N> {
+export class ZiroPromptMessage<C,N> extends ZiroMessage<C,N> implements ZiroPromptProps<C,N> {
 
     readonly userResolution: string
     readonly firstButton?: Button
     readonly secondButton?: Button
 
-    constructor(props: ZiroPromptProps<N>) {
+    constructor(props: ZiroPromptProps<C,N>) {
         const { userResolution, firstButton, secondButton, ...rest } = props
         super(rest)
         this.userResolution = userResolution
@@ -43,17 +43,28 @@ export class ZiroPromptMessage<N> extends ZiroMessage<N> implements ZiroPromptPr
         })
     }
 
-    set<K extends keyof ZiroPromptFullData>(variable: K, value: ZiroPromptFullData[K]) {
+    set<K extends keyof ZiroPromptFullData<C>>(variable: K, value: ZiroPromptFullData<C>[K]) {
         return new ZiroPromptMessage({
             ...this.getData(),
             [variable]: value
         })
     }
 
-    getData(): Omit<ZiroPromptProps<N>,"firstButton"|"secondButton"> {
+    getData(): Omit<ZiroPromptProps<C,N>,"firstButton"|"secondButton"> {
         return {
             ...super.getData(),
             userResolution: this.userResolution
         }
     }
 }
+
+const seila = new ZiroPromptMessage({
+    code: "0012",
+    title: "",
+    type: "destructive",
+    name: "",
+    illustration: "buy",
+    internalDescription: "",
+    userDescription: "",
+    userResolution: ""
+})
