@@ -12,21 +12,19 @@ export type Illustration =
     |"waiting"
     |"noData"
 
-export type AdditionalData = { [key: string]: any }
-
-export interface ZiroData<C> {
+export interface ZiroData<C,D> {
     code: C
     type: "neutral"|"destructive"|"success"
     title: string
     illustration: Illustration
     userDescription: string
     internalDescription: string
-    additionalData?: AdditionalData
+    additionalData?: D
 }
 
-export type ZiroProps<C,N> = ZiroData<C> & { name: N }
+export type ZiroProps<C,N,D> = ZiroData<C,D> & { name: N }
 
-export class ZiroMessage<C,N> implements ZiroProps<C,N> {
+export class ZiroMessage<C,N,D> implements ZiroProps<C,N,D> {
 
     readonly name: N
     readonly type: "neutral"|"destructive"|"success"
@@ -35,9 +33,9 @@ export class ZiroMessage<C,N> implements ZiroProps<C,N> {
     readonly illustration: Illustration
     readonly userDescription: string
     readonly internalDescription: string
-    readonly additionalData ?: AdditionalData
+    readonly additionalData: D
 
-    constructor(props: ZiroProps<C,N>) {
+    constructor(props: ZiroProps<C,N,D>) {
         this.name = props.name
         this.type = props.type
         this.code = props.code
@@ -45,19 +43,19 @@ export class ZiroMessage<C,N> implements ZiroProps<C,N> {
         this.illustration = props.illustration
         this.userDescription = props.userDescription
         this.internalDescription = props.internalDescription
-        this.additionalData = props.additionalData
+        this.additionalData = props.additionalData||{} as D
         this.set = this.set.bind(this)
         this.withAdditionalData = this.withAdditionalData.bind(this)
     }
 
-    set<K extends keyof ZiroData<C>>(variable: K, value: ZiroData<C>[K]) {
+    set<K extends keyof ZiroData<C,D>>(variable: K, value: ZiroData<C,D>[K]) {
         return new ZiroMessage({
             ...this.getData(),
             [variable]: value
         })
     }
 
-    getData(): ZiroProps<C,N> {
+    getData(): ZiroProps<C,N,D> {
         return {
             name: this.name,
             type: this.type,
@@ -70,11 +68,11 @@ export class ZiroMessage<C,N> implements ZiroProps<C,N> {
         }
     }
 
-    withAdditionalData(data: AdditionalData) {
+    withAdditionalData<ND>(data: ND) {
         const { additionalData, ...rest } = this.getData()
         return new ZiroMessage({
             ...rest,
-            additionalData: { ...(additionalData||{}), ...data }
+            additionalData: { ...(additionalData||({} as D)), ...data }
         })
     }
 }

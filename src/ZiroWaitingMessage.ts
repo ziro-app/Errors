@@ -1,18 +1,18 @@
-import { ZiroMessage, ZiroProps, ZiroData, AdditionalData } from "./ZiroMessage"
+import { ZiroMessage, ZiroProps, ZiroData } from "./ZiroMessage"
 
 interface ZiroWaitingData {
     promise?: Promise<any>
 }
 
-export type ZiroWaitingFullData<C> = ZiroData<C> & ZiroWaitingData
+export type ZiroWaitingFullData<C,D> = ZiroData<C,D> & ZiroWaitingData
 
-type ZiroWaitingProps<C,N> = ZiroProps<C,N> & ZiroWaitingData
+type ZiroWaitingProps<C,N,D> = ZiroProps<C,N,D> & ZiroWaitingData
 
-export class ZiroWaitingMessage<C,N> extends ZiroMessage<C,N> implements ZiroWaitingData {
+export class ZiroWaitingMessage<C,N,D> extends ZiroMessage<C,N,D> implements ZiroWaitingData {
 
     readonly promise?: Promise<any>
 
-    constructor(props: ZiroWaitingProps<C,N>) {
+    constructor(props: ZiroWaitingProps<C,N,D>) {
         const { promise, ...rest } = props
         super(rest)
         this.promise = promise
@@ -26,22 +26,22 @@ export class ZiroWaitingMessage<C,N> extends ZiroMessage<C,N> implements ZiroWai
         })
     }
 
-    set<K extends keyof ZiroWaitingFullData<C>>(variable: K, value: ZiroWaitingFullData<C>[K]) {
+    set<K extends keyof ZiroWaitingFullData<C,D>>(variable: K, value: ZiroWaitingFullData<C,D>[K]) {
         return new ZiroWaitingMessage({
             ...this.getData(),
             [variable]: value
         })
     }
 
-    getData(): Omit<ZiroWaitingProps<C,N>,"promise"> {
+    getData(): Omit<ZiroWaitingProps<C,N,D>,"promise"> {
         return super.getData()
     }
 
-    withAdditionalData(data: AdditionalData) {
+    withAdditionalData<ND>(data: ND) {
         const { additionalData, ...rest } = this.getData()
         return new ZiroWaitingMessage({
             ...rest,
-            additionalData: { ...(additionalData||{}), ...data }
+            additionalData: { ...(additionalData||{} as D), ...data }
         })
     }
 }

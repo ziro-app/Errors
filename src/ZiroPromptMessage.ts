@@ -1,4 +1,4 @@
-import { ZiroMessage, ZiroProps, ZiroData, AdditionalData } from "./ZiroMessage"
+import { ZiroMessage, ZiroProps, ZiroData } from "./ZiroMessage"
 
 export type Button = {
     title: string
@@ -15,17 +15,17 @@ type Buttons = {
     secondButton?: Button
 }
 
-export type ZiroPromptFullData<C> = ZiroData<C> & ZiroPromptData
+export type ZiroPromptFullData<C,D> = ZiroData<C,D> & ZiroPromptData
 
-type ZiroPromptProps<C,N> = ZiroProps<C,N> & ZiroPromptData & Buttons
+type ZiroPromptProps<C,N,D> = ZiroProps<C,N,D> & ZiroPromptData & Buttons
 
-export class ZiroPromptMessage<C,N> extends ZiroMessage<C,N> implements ZiroPromptProps<C,N> {
+export class ZiroPromptMessage<C,N,D> extends ZiroMessage<C,N,D> implements ZiroPromptProps<C,N,D> {
 
     readonly userResolution: string
     readonly firstButton?: Button
     readonly secondButton?: Button
 
-    constructor(props: ZiroPromptProps<C,N>) {
+    constructor(props: ZiroPromptProps<C,N,D>) {
         const { userResolution, firstButton, secondButton, ...rest } = props
         super(rest)
         this.userResolution = userResolution
@@ -43,25 +43,25 @@ export class ZiroPromptMessage<C,N> extends ZiroMessage<C,N> implements ZiroProm
         })
     }
 
-    set<K extends keyof ZiroPromptFullData<C>>(variable: K, value: ZiroPromptFullData<C>[K]) {
+    set<K extends keyof ZiroPromptFullData<C,D>>(variable: K, value: ZiroPromptFullData<C,D>[K]) {
         return new ZiroPromptMessage({
             ...this.getData(),
             [variable]: value
         })
     }
 
-    getData(): Omit<ZiroPromptProps<C,N>,"firstButton"|"secondButton"> {
+    getData(): Omit<ZiroPromptProps<C,N,D>,"firstButton"|"secondButton"> {
         return {
             ...super.getData(),
             userResolution: this.userResolution
         }
     }
 
-    withAdditionalData(data: AdditionalData) {
+    withAdditionalData<ND>(data: ND) {
         const { additionalData, ...rest } = this.getData()
         return new ZiroPromptMessage({
             ...rest,
-            additionalData: { ...(additionalData||{}), ...data }
+            additionalData: { ...(additionalData||{} as D), ...data }
         })
     }
 }
