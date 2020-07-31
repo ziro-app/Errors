@@ -2,7 +2,7 @@ import { ZiroMessage, ZiroProps, ZiroData, AdditionalData } from "./ZiroMessage"
 
 export type Button = {
     title: string
-    action: () => (void|ZiroPromptMessage<string,string>)
+    action: () => any
 }
 
 interface ZiroPromptData {
