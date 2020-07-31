@@ -93,34 +93,61 @@ UNRECOGNIZED_FACE_OBJECT: UploadDocumentPromptData<"0033"> = {
 FIRST_NAME_MISMATCH: UploadDocumentPromptData<"0034"> = {
     code: "0034",
     type: "destructive",
-    title: "O documento nõo pertence ao portador",
+    title: "O documento reprovado",
     illustration: "paymentError",
-    userDescription: "",
-    userResolution: "",
-    internalDescription: "",
+    userDescription: "O documento enviado não pertence ao portador do cartão.",
+    userResolution: "Envie um documento pertencente ao portador do cartão que está sendo cadastrado.",
+    internalDescription: "O primeiro nome no documento é diferente do primeiro nome no cartão",
 },
 LAST_NAME_MISMATCH: UploadDocumentPromptData<"0035"> = {
     code: "0035",
     type: "destructive",
     title: "O documento nõo pertence ao portador",
     illustration: "paymentError",
-    userDescription: "",
-    userResolution: "",
-    internalDescription: "",
+    userDescription: "O documento enviado não pertence ao portador do cartão.",
+    userResolution: "Envie um documento pertencente ao portador do cartão que está sendo cadastrado.",
+    internalDescription: "O segundo sobrenome no documento é diferente do sobrenome no cartão",
+},
+UNRECOGNIZED_RESPONSE: UploadDocumentPromptData<"0036"> = {
+    code: "0036",
+    type: "destructive",
+    title: "Erro na análise",
+    illustration: "paymentError",
+    userDescription: "A Ziro não pode analisar o documento enviado.",
+    userResolution: "Entre em contato com o suporte.",
+    internalDescription: "A resposta recebida da nextcode é diferente da esperada e o código não está pronto para processa-la, entre em contato com os devs"
+},
+UNKNOWN_DOCUMENT_TYPE: UploadDocumentPromptData<"0037"> = {
+    code: "0037",
+    type: "destructive",
+    title: "Erro na análise",
+    illustration: "paymentError",
+    userDescription: "A Ziro não pode reconher o documento.",
+    userResolution: "Entre em contato com o suporte.",
+    internalDescription: "A resposta recebida da nextcode categorizou o documento como um formato diferente do esperado"
 },
 /**
- * UPLOAD SELFIE - 0051 - 0065
+ * UPLOAD SELFIE - 0050 - 0064
  */
 
  /**
-  * COMMON - 0076 - 0090
+  * COMMON - 0075 - 0094
   */
- NO_IMAGE: CommonAntifraudePromptData<"0076"> = {
-    code: "0076",
+ NO_IMAGE: CommonAntifraudePromptData<"0075"> = {
+    code: "0075",
     type: "destructive",
     title: "É preciso enviar uma imagem",
     illustration: "paymentError",
     userDescription: "Não é possível passar para a próxima etapa sem enviar uma imagem para análise.",
     userResolution: "Tire uma foto ou escolha uma imagem salva em seu aparelho.",
     internalDescription: "O usuário clicou em próximo sem ter tirado foto alguma."
+},
+CLOSE: CommonAntifraudePromptData<"0076"> = {
+    code: "0076",
+    type: "destructive",
+    title: "Sair",
+    illustration: "paymentError",
+    userDescription: "É preciso concluir o upload de documento e selfie para utilizar esse cartão.",
+    userResolution: "Tem certeza que deseja sair?",
+    internalDescription: "O usuário está saindo do flow antifraude"
 }

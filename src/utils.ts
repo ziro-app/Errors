@@ -1,20 +1,35 @@
 import { ZiroPromptFullData, ZiroPromptMessage } from "./ZiroPromptMessage"
 import { ZiroWaitingFullData, ZiroWaitingMessage } from "./ZiroWaitingMessage"
 
-type PromptDataObject = { [key: string]: ZiroPromptFullData<string> }
-type PromptClassObject<V> = { [K in keyof V]: V[K] extends ZiroPromptFullData<infer C> ? ZiroPromptMessage<C,K> : never }
+/**
+ * generic types
+ */
 
-type Entries<V> = [string,V][]
+type Entry<V> = [string,V]
+type O<V> = { [key: string]: V }
 
-export const createPromptClassObject = function<V extends PromptDataObject>(pack: V): PromptClassObject<V> {
-    return (<Entries<ZiroPromptFullData<string>>>(<any>Object).entries(pack))
-        .reduce((acc,[n,m]) => ({ ...acc, [n]: new ZiroPromptMessage({ ...m, name: n }) }),{} as PromptClassObject<V>)
+function entries<V>(obj: O<V>): Entry<V>[] {
+    return (Object as any).entries(obj)
 }
 
+/**
+ * prompt
+ */
+
+type PromptDataObject = { [key: string]: ZiroPromptFullData<string> }
+type PromptClassObject<V> = { [N in keyof V]: V[N] extends ZiroPromptFullData<infer C> ? ZiroPromptMessage<C,N> : never }
+
+export const createPromptClassObject = function<V extends PromptDataObject>(pack: V): PromptClassObject<V> {
+    return entries(pack).reduce((acc,[name,data]) => ({ ...acc, [name]: new ZiroPromptMessage({ ...data, name }) }),{} as any)
+}
+
+/**
+ * waiting
+ */
+
 type WaitingDataObject = { [key: string]: ZiroWaitingFullData<string> }
-type WaitingClassObject<V> = { [K in keyof V]: V[K] extends ZiroWaitingFullData<infer C> ? ZiroWaitingMessage<C,K> : never }
+type WaitingClassObject<V> = { [N in keyof V]: V[N] extends ZiroWaitingFullData<infer C> ? ZiroWaitingMessage<C,N> : never }
 
 export const createWaitingClassObject = function<V extends WaitingDataObject>(pack: V): WaitingClassObject<V> {
-    return (<Entries<ZiroWaitingFullData<string>>>(<any>Object).entries(pack))
-        .reduce((acc,[n,m]) => ({ ...acc, [n]: new ZiroWaitingMessage({ ...m, name: n }) }),{} as WaitingClassObject<V>)
+    return entries(pack).reduce((acc,[name,data]) => ({ ...acc, [name]: new ZiroWaitingMessage({ ...data, name }) }),{} as any)
 }
