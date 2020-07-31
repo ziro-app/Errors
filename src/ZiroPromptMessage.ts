@@ -1,4 +1,4 @@
-import { ZiroMessage, ZiroProps, ZiroData } from "./ZiroMessage"
+import { ZiroMessage, ZiroProps, ZiroData, AdditionalData } from "./ZiroMessage"
 
 export type Button = {
     title: string
@@ -56,15 +56,11 @@ export class ZiroPromptMessage<C,N> extends ZiroMessage<C,N> implements ZiroProm
             userResolution: this.userResolution
         }
     }
-}
 
-const seila = new ZiroPromptMessage({
-    code: "0012",
-    title: "",
-    type: "destructive",
-    name: "",
-    illustration: "buy",
-    internalDescription: "",
-    userDescription: "",
-    userResolution: ""
-})
+    withAdditionalData(data: AdditionalData) {
+        return new ZiroPromptMessage({
+            ...this.getData(),
+            additionalData: data
+        })
+    }
+}

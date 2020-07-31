@@ -12,7 +12,7 @@ export type Illustration =
     |"waiting"
     |"noData"
 
-type AdditionalData = { [key: string]: any }
+export type AdditionalData = { [key: string]: any }
 
 export interface ZiroData<C> {
     code: C

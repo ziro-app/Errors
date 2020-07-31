@@ -1,4 +1,4 @@
-import { ZiroMessage, ZiroProps, ZiroData } from "./ZiroMessage"
+import { ZiroMessage, ZiroProps, ZiroData, AdditionalData } from "./ZiroMessage"
 
 interface ZiroWaitingData {
     promise?: Promise<any>
@@ -23,6 +23,24 @@ export class ZiroWaitingMessage<C,N> extends ZiroMessage<C,N> implements ZiroWai
         return new ZiroWaitingMessage({
             ...this.getData(),
             promise
+        })
+    }
+
+    set<K extends keyof ZiroWaitingFullData<C>>(variable: K, value: ZiroWaitingFullData<C>[K]) {
+        return new ZiroWaitingMessage({
+            ...this.getData(),
+            [variable]: value
+        })
+    }
+
+    getData(): Omit<ZiroWaitingProps<C,N>,"promise"> {
+        return super.getData()
+    }
+
+    withAdditionalData(data: AdditionalData) {
+        return new ZiroWaitingMessage({
+            ...this.getData(),
+            additionalData: data
         })
     }
 }
