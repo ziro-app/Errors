@@ -38,9 +38,10 @@ export class ZiroWaitingMessage<C,N> extends ZiroMessage<C,N> implements ZiroWai
     }
 
     withAdditionalData(data: AdditionalData) {
+        const { additionalData, ...rest } = this.getData()
         return new ZiroWaitingMessage({
-            ...this.getData(),
-            additionalData: data
+            ...rest,
+            additionalData: { ...(additionalData||{}), ...data }
         })
     }
 }

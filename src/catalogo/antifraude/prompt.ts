@@ -93,7 +93,7 @@ UNRECOGNIZED_FACE_OBJECT: UploadDocumentPromptData<"0033"> = {
 FIRST_NAME_MISMATCH: UploadDocumentPromptData<"0034"> = {
     code: "0034",
     type: "destructive",
-    title: "O documento reprovado",
+    title: "Documento reprovado",
     illustration: "paymentError",
     userDescription: "O documento enviado não pertence ao portador do cartão.",
     userResolution: "Envie um documento pertencente ao portador do cartão que está sendo cadastrado.",

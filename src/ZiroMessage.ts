@@ -71,9 +71,10 @@ export class ZiroMessage<C,N> implements ZiroProps<C,N> {
     }
 
     withAdditionalData(data: AdditionalData) {
+        const { additionalData, ...rest } = this.getData()
         return new ZiroMessage({
-            ...this.getData(),
-            additionalData: data
+            ...rest,
+            additionalData: { ...(additionalData||{}), ...data }
         })
     }
 }

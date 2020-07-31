@@ -58,9 +58,10 @@ export class ZiroPromptMessage<C,N> extends ZiroMessage<C,N> implements ZiroProm
     }
 
     withAdditionalData(data: AdditionalData) {
+        const { additionalData, ...rest } = this.getData()
         return new ZiroPromptMessage({
-            ...this.getData(),
-            additionalData: data
+            ...rest,
+            additionalData: { ...(additionalData||{}), ...data }
         })
     }
 }
