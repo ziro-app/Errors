@@ -1,8 +1,9 @@
 {
   "name": "ziro-messages",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "repositorio contendo todos as mensagens da Ziro",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ziro-app/Messages/issues"
   },
-  "homepage": "https://github.com/ziro-app/Messages#readme"
+  "homepage": "https://github.com/ziro-app/Messages#readme",
+  "dependencies": {
+    "typescript": "^3.9.7"
+  }
 }
