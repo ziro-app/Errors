@@ -4,7 +4,7 @@ import { ZiroPromptFullData, ZiroWaitingFullData } from "./src"
 /**
  * CODES
  */
-export type Codes = CatalogCodes
+export type Codes = CatalogCodes|NextCodeCodes
 /**
  * CATALOG                              0XXX
  */
@@ -57,3 +57,13 @@ export type CommonAntifraudeWaitingCodes = "0095"|"0096"|"0097"|"0098"|"0099"
 export type CommonAntifraudeWaitingData<C extends CommonAntifraudeWaitingCodes> = ZiroWaitingFullData<C,{}>
 //All
 export type CommonAntifraudeCodes = CommonAntifraudePromptCodes|CommonAntifraudeWaitingCodes
+/**
+ * NEXTCODE                             1XXX
+ */
+//Prompt
+export type NextCodePromptCodes = "1000"|"1400"|"1401"|"1403"|"1404"|"1405"|"1408"|"1410"|"1422"|"1500"|"1503"
+export type NextCodePromptData<C extends NextCodePromptCodes> = ZiroPromptFullData<C,{}>
+//Waiting
+////////////////////////////////
+//All
+export type NextCodeCodes = NextCodePromptCodes

@@ -1,4 +1,4 @@
-import { RegisterCardPromptData, UploadDocumentPromptData, UploadSelfiePromptData, CommonAntifraudePromptData } from "../../../"
+import { RegisterCardPromptData, UploadDocumentPromptData, UploadSelfiePromptData, CommonAntifraudePromptData } from "../../../index"
 
 export const 
 
@@ -126,6 +126,15 @@ UNKNOWN_DOCUMENT_TYPE: UploadDocumentPromptData<"0037"> = {
     userResolution: "Entre em contato com o suporte.",
     internalDescription: "A resposta recebida da nextcode categorizou o documento como um formato diferente do esperado"
 },
+SELFIE_TYPE: UploadDocumentPromptData<"0038"> = {
+    code: "0038",
+    type: "destructive",
+    title: "Upload do documento",
+    illustration: "paymentError",
+    userDescription: "Antes de fazer upload da selfie, é necessário enviar uma foto do documento do portador.",
+    userResolution: "Envie um documento pertencente ao portador do cartão que está sendo cadastrado.",
+    internalDescription: "O usuário tentou enviar uma selfie no momento que deveria ter enviado uma foto do documento."
+},
 /**
  * UPLOAD SELFIE - 0050 - 0064
  */
@@ -150,4 +159,13 @@ CLOSE: CommonAntifraudePromptData<"0076"> = {
     userDescription: "É preciso concluir o upload de documento e selfie para utilizar esse cartão.",
     userResolution: "Tem certeza que deseja sair?",
     internalDescription: "O usuário está saindo do flow antifraude"
+},
+TOO_MANY_ATTEMPTS: CommonAntifraudePromptData<"0077"> = {
+    code: "0077",
+    type: "destructive",
+    title: "Tentativas excedidas",
+    illustration: "paymentError",
+    userDescription: "Parece que o processo falhou muitas vezes seguidas.",
+    userResolution: "Contate o suporte para continuar.",
+    internalDescription: "O usuário tentou realizar o mesmo procedimento muitas vezes sem sucesso e por isso foi impossibilitado de continuar."
 }
