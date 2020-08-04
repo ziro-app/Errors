@@ -12,7 +12,11 @@ export type Illustration =
     |"waiting"
     |"noData"
 
-export interface ZiroData<C,D> {
+type GenericData = {
+    [key: string]: any
+}
+
+export interface ZiroData<C,D extends GenericData> {
     code: C
     type: "neutral"|"destructive"|"success"
     title: string

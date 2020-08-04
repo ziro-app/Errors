@@ -58,12 +58,17 @@ export type CommonAntifraudeWaitingData<C extends CommonAntifraudeWaitingCodes> 
 //All
 export type CommonAntifraudeCodes = CommonAntifraudePromptCodes|CommonAntifraudeWaitingCodes
 /**
- * NEXTCODE                             1XXX
+ * NEXTCODE                             01XX
  */
 //Prompt
-export type NextCodePromptCodes = "1000"|"1400"|"1401"|"1403"|"1404"|"1405"|"1408"|"1410"|"1422"|"1500"|"1503"
+export type NextCodePromptCodes = "0100"|"0101"|"0102"|"0103"|"0104"|"0105"|"0106"|"0107"|"0108"|"0109"|"0110"
 export type NextCodePromptData<C extends NextCodePromptCodes> = ZiroPromptFullData<C,{}>
 //Waiting
 ////////////////////////////////
 //All
 export type NextCodeCodes = NextCodePromptCodes
+/**
+ * ZOOP                                 2XXX
+ */
+//Prompt
+export type ZoopPromptCodes = "2000"|"2400"|"2401"|"2402"|"2403"|"2404"|"2500"|"2502"

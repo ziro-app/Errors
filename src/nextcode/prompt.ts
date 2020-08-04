@@ -1,8 +1,8 @@
 import { NextCodePromptData } from "../../index"
 
 export const 
-UNKNOWN_ERROR: NextCodePromptData<"1000"> = {
-    code: "1000",
+UNKNOWN_ERROR: NextCodePromptData<"0100"> = {
+    code: "0100",
     type: "destructive",
     title: "Ocorreu um erro na solicitação",
     illustration: "profileData",
@@ -10,8 +10,8 @@ UNKNOWN_ERROR: NextCodePromptData<"1000"> = {
     userResolution: "Tente novamente, se o erro persistir contate o suporte.",
     internalDescription: "A requisição para a NextCode retornou um erro desconhecido."
 },
-BAD_REQUEST: NextCodePromptData<"1400"> = {
-    code: "1400",
+BAD_REQUEST: NextCodePromptData<"0101"> = {
+    code: "0101",
     type: "destructive",
     title: "Ocorreu um erro na solicitação",
     illustration: "profileData",
@@ -19,8 +19,8 @@ BAD_REQUEST: NextCodePromptData<"1400"> = {
     userResolution: "Tente novamente, se o erro persistir contate o suporte.",
     internalDescription: "A requisição para a NextCode retornou um erro de Bad Request."
 },
-UNAUTHORIZED: NextCodePromptData<"1401"> = {
-    code: "1401",
+UNAUTHORIZED: NextCodePromptData<"0102"> = {
+    code: "0102",
     type: "destructive",
     title: "Ocorreu um erro na solicitação",
     illustration: "profileData",
@@ -28,8 +28,8 @@ UNAUTHORIZED: NextCodePromptData<"1401"> = {
     userResolution: "Tente novamente, se o erro persistir contate o suporte.",
     internalDescription: "A requisição para a NextCode retornou um erro de Unauthorized, possivelmente o request de login foi mal-sucedido."
 },
-FORBIDDEN: NextCodePromptData<"1403"> = {
-    code: "1403",
+FORBIDDEN: NextCodePromptData<"0103"> = {
+    code: "0103",
     type: "destructive",
     title: "Ocorreu um erro na solicitação",
     illustration: "profileData",
@@ -37,8 +37,8 @@ FORBIDDEN: NextCodePromptData<"1403"> = {
     userResolution: "Tente novamente, se o erro persistir contate o suporte.",
     internalDescription: "A requisição para a NextCode retornou um erro de Forbidden, possivelmente a API mudou."
 },
-NOT_FOUND: NextCodePromptData<"1404"> = {
-    code: "1404",
+NOT_FOUND: NextCodePromptData<"0104"> = {
+    code: "0104",
     type: "destructive",
     title: "Ocorreu um erro na solicitação",
     illustration: "profileData",
@@ -46,8 +46,8 @@ NOT_FOUND: NextCodePromptData<"1404"> = {
     userResolution: "Tente novamente, se o erro persistir contate o suporte.",
     internalDescription: "A requisição para a NextCode retornou um erro de Not Found, possivelmente a API mudou."
 },
-METHOD_NOT_ALLOWED: NextCodePromptData<"1405"> = {
-    code: "1405",
+METHOD_NOT_ALLOWED: NextCodePromptData<"0105"> = {
+    code: "0105",
     type: "destructive",
     title: "Ocorreu um erro na solicitação",
     illustration: "profileData",
@@ -55,8 +55,8 @@ METHOD_NOT_ALLOWED: NextCodePromptData<"1405"> = {
     userResolution: "Tente novamente, se o erro persistir contate o suporte.",
     internalDescription: "A requisição para a NextCode retornou um erro de Method Not Allowed, possivelmente a API mudou."
 },
-TIMEOUT: NextCodePromptData<"1408"> = {
-    code: "1408",
+TIMEOUT: NextCodePromptData<"0106"> = {
+    code: "0106",
     type: "destructive",
     title: "Ocorreu um erro na solicitação",
     illustration: "profileData",
@@ -64,8 +64,8 @@ TIMEOUT: NextCodePromptData<"1408"> = {
     userResolution: "Tente novamente, se o erro persistir contate o suporte.",
     internalDescription: "A requisição para a NextCode retornou um erro de Timeout, verifique os dados adcionais para saber se o timeout foi causado pelas configurações da Ziro ou pela própria NextCode."
 },
-GONE: NextCodePromptData<"1410"> = {
-    code: "1410",
+GONE: NextCodePromptData<"0107"> = {
+    code: "0107",
     type: "destructive",
     title: "Ocorreu um erro na solicitação",
     illustration: "profileData",
@@ -73,8 +73,8 @@ GONE: NextCodePromptData<"1410"> = {
     userResolution: "Tente novamente, se o erro persistir contate o suporte.",
     internalDescription: "A requisição para a NextCode retornou um erro de Gone, como nenhum dado é recuperado da NextCode, é possível que a API tenha mudado."
 },
-UNPROCESSABLE_ENTITY: NextCodePromptData<"1422"> = {
-    code: "1422",
+UNPROCESSABLE_ENTITY: NextCodePromptData<"0108"> = {
+    code: "0108",
     type: "destructive",
     title: "Ocorreu um erro na solicitação",
     illustration: "profileData",
@@ -82,8 +82,8 @@ UNPROCESSABLE_ENTITY: NextCodePromptData<"1422"> = {
     userResolution: "Tente novamente, se o erro persistir contate o suporte.",
     internalDescription: "A requisição para a NextCode retornou um erro de Unprocessable Entity, o que indica que a imagem não pode ser processada."
 },
-INTERNAL_SERVER_ERROR: NextCodePromptData<"1500"> = {
-    code: "1500",
+INTERNAL_SERVER_ERROR: NextCodePromptData<"0109"> = {
+    code: "0109",
     type: "destructive",
     title: "Ocorreu um erro na solicitação",
     illustration: "profileData",
@@ -91,8 +91,8 @@ INTERNAL_SERVER_ERROR: NextCodePromptData<"1500"> = {
     userResolution: "Tente novamente, se o erro persistir contate o suporte.",
     internalDescription: "A requisição para a NextCode retornou um erro de Internal Server Error, o que indica um erro desconhecido da própria nextcode e que provavelmente não voltará a acontecer depois de um tempo."
 },
-SERVICE_UNAVAILABLE: NextCodePromptData<"1503"> = {
-    code: "1503",
+SERVICE_UNAVAILABLE: NextCodePromptData<"0110"> = {
+    code: "0110",
     type: "destructive",
     title: "Ocorreu um erro na solicitação",
     illustration: "profileData",
