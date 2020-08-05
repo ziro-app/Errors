@@ -67,5 +67,5 @@ export class ZiroPromptMessage<C,N,D> extends ZiroMessage<C,N,D> implements Ziro
 }
 
 export const isPrompt = function<C = string,N = string,D = any>(obj: any): obj is ZiroPromptMessage<C,N,D> {
-    return ("$$promptMessage" in obj) && obj.$$promptMessage
+    return typeof obj === "object" && ("$$promptMessage" in obj) && obj.$$promptMessage
 }
