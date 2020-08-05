@@ -21,16 +21,16 @@ type ZiroPromptProps<C,N,D> = ZiroProps<C,N,D> & ZiroPromptData & Buttons
 
 export class ZiroPromptMessage<C,N,D> extends ZiroMessage<C,N,D> implements ZiroPromptProps<C,N,D> {
 
+    readonly $$promptMessage = true
     readonly userResolution: string
     readonly firstButton?: Button
     readonly secondButton?: Button
 
     constructor(props: ZiroPromptProps<C,N,D>) {
-        const { userResolution, firstButton, secondButton, ...rest } = props
-        super(rest)
-        this.userResolution = userResolution
-        this.firstButton = firstButton
-        this.secondButton = secondButton
+        super(props)
+        this.userResolution = props.userResolution
+        this.firstButton = props.firstButton
+        this.secondButton = props.secondButton
         this.withButtons = this.withButtons.bind(this)
         this.set = this.set.bind(this)
     }
@@ -64,4 +64,8 @@ export class ZiroPromptMessage<C,N,D> extends ZiroMessage<C,N,D> implements Ziro
             additionalData: { ...(additionalData||{} as D), ...data }
         })
     }
+}
+
+export const isPrompt = function<C = string,N = string,D = any>(obj: any): obj is ZiroPromptMessage<C,N,D> {
+    return obj.$$promptMessage
 }

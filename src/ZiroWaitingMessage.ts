@@ -10,12 +10,12 @@ type ZiroWaitingProps<C,N,D> = ZiroProps<C,N,D> & ZiroWaitingData
 
 export class ZiroWaitingMessage<C,N,D> extends ZiroMessage<C,N,D> implements ZiroWaitingData {
 
+    readonly $$waitingMessage = true
     readonly promise?: Promise<any>
 
     constructor(props: ZiroWaitingProps<C,N,D>) {
-        const { promise, ...rest } = props
-        super(rest)
-        this.promise = promise
+        super(props)
+        this.promise = props.promise
         this.withPromise = this.withPromise.bind(this)
     }
 
@@ -44,4 +44,8 @@ export class ZiroWaitingMessage<C,N,D> extends ZiroMessage<C,N,D> implements Zir
             additionalData: { ...(additionalData||{} as D), ...data }
         })
     }
+}
+
+export const isWaiting = function<C = string,N = string,D = any>(obj: any): obj is ZiroWaitingMessage<C,N,D> {
+    return obj.$$waitingMessage
 }

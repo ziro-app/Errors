@@ -68,7 +68,7 @@ export type NextCodePromptData<C extends NextCodePromptCodes> = ZiroPromptFullDa
 //All
 export type NextCodeCodes = NextCodePromptCodes
 /**
- * ZOOP                                 2XXX
+ * ZOOP                                 02XX
  */
 //Prompt
 export type ZoopPromptCodes = "2000"|"2400"|"2401"|"2402"|"2403"|"2404"|"2500"|"2502"
