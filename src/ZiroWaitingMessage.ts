@@ -47,5 +47,5 @@ export class ZiroWaitingMessage<C,N,D> extends ZiroMessage<C,N,D> implements Zir
 }
 
 export const isWaiting = function<C = string,N = string,D = any>(obj: any): obj is ZiroWaitingMessage<C,N,D> {
-    return obj.$$waitingMessage
+    return ("$$waitingMessage" in obj) && obj.$$waitingMessage
 }
