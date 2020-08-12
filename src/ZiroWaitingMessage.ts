@@ -4,13 +4,13 @@ interface ZiroWaitingData {
     promise?: Promise<any>
 }
 
-export type ZiroWaitingFullData<C,D> = ZiroData<C,D> & ZiroWaitingData
+export type ZiroWaitingFullData<C,D = undefined> = ZiroData<C,D> & ZiroWaitingData
 
 type ZiroWaitingProps<C,N,D> = ZiroProps<C,N,D> & ZiroWaitingData
 
-export class ZiroWaitingMessage<C,N,D> extends ZiroMessage<C,N,D> implements ZiroWaitingData {
+export class ZiroWaitingMessage<C,N,D = undefined> extends ZiroMessage<C,N,D> implements ZiroWaitingProps<C,N,D> {
 
-    readonly $$waitingMessage = true
+    private readonly $$waitingMessage = true
     readonly promise?: Promise<any>
 
     constructor(props: ZiroWaitingProps<C,N,D>) {
@@ -41,7 +41,7 @@ export class ZiroWaitingMessage<C,N,D> extends ZiroMessage<C,N,D> implements Zir
         const { additionalData, ...rest } = this.getData()
         return new ZiroWaitingMessage({
             ...rest,
-            additionalData: { ...(additionalData||{} as D), ...data }
+            additionalData: { ...additionalData, ...data }
         })
     }
 }
@@ -49,3 +49,8 @@ export class ZiroWaitingMessage<C,N,D> extends ZiroMessage<C,N,D> implements Zir
 export const isWaiting = function<C = string,N = string,D = any>(obj: any): obj is ZiroWaitingMessage<C,N,D> {
     return typeof obj === "object" && ("$$waitingMessage" in obj) && obj.$$waitingMessage
 }
+
+type WaitingMessageCollection = { [key: string]: ZiroWaitingMessage<string, string, any> }
+export type GetWaitingCode<V extends WaitingMessageCollection,N extends keyof V> = V[N] extends ZiroWaitingFullData<infer C,any> ? C : never
+export type GetWaitingData<V extends WaitingMessageCollection,N extends keyof V> = V[N] extends ZiroWaitingFullData<any,infer D> ? D : never
+export type WaitingMessage<V extends WaitingMessageCollection,N extends keyof V,D> = ZiroWaitingMessage<GetWaitingCode<V,N>,N,D>

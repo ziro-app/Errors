@@ -23,12 +23,12 @@ export interface ZiroData<C,D extends GenericData> {
     illustration: Illustration
     userDescription: string
     internalDescription: string
-    additionalData?: D
+    additionalData: D
 }
 
 export type ZiroProps<C,N,D> = ZiroData<C,D> & { name: N }
 
-export class ZiroMessage<C,N,D> implements ZiroProps<C,N,D> {
+export abstract class ZiroMessage<C,N,D> implements ZiroProps<C,N,D> {
 
     readonly name: N
     readonly type: "neutral"|"destructive"|"success"
@@ -48,15 +48,6 @@ export class ZiroMessage<C,N,D> implements ZiroProps<C,N,D> {
         this.userDescription = props.userDescription
         this.internalDescription = props.internalDescription
         this.additionalData = props.additionalData||{} as D
-        this.set = this.set.bind(this)
-        this.withAdditionalData = this.withAdditionalData.bind(this)
-    }
-
-    set<K extends keyof ZiroData<C,D>>(variable: K, value: ZiroData<C,D>[K]) {
-        return new ZiroMessage({
-            ...this.getData(),
-            [variable]: value
-        })
     }
 
     getData(): ZiroProps<C,N,D> {
@@ -70,13 +61,5 @@ export class ZiroMessage<C,N,D> implements ZiroProps<C,N,D> {
             internalDescription: this.internalDescription,
             additionalData: this.additionalData
         }
-    }
-
-    withAdditionalData<ND>(data: ND) {
-        const { additionalData, ...rest } = this.getData()
-        return new ZiroMessage({
-            ...rest,
-            additionalData: { ...(additionalData||({} as D)), ...data }
-        })
     }
 }

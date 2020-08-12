@@ -1,10 +1,12 @@
 {
   "name": "ziro-messages",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "repositorio contendo todos as mensagens da Ziro",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "prepublish": "tsc",
+    "postpublish": "rm -rf ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

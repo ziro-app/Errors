@@ -15,13 +15,13 @@ type Buttons = {
     secondButton?: Button
 }
 
-export type ZiroPromptFullData<C,D> = ZiroData<C,D> & ZiroPromptData
+export type ZiroPromptFullData<C,D = undefined> = ZiroData<C,D> & ZiroPromptData
 
 type ZiroPromptProps<C,N,D> = ZiroProps<C,N,D> & ZiroPromptData & Buttons
 
-export class ZiroPromptMessage<C,N,D> extends ZiroMessage<C,N,D> implements ZiroPromptProps<C,N,D> {
+export class ZiroPromptMessage<C,N,D = undefined> extends ZiroMessage<C,N,D> implements ZiroPromptProps<C,N,D> {
 
-    readonly $$promptMessage = true
+    private readonly $$promptMessage = true
     readonly userResolution: string
     readonly firstButton?: Button
     readonly secondButton?: Button
@@ -61,7 +61,7 @@ export class ZiroPromptMessage<C,N,D> extends ZiroMessage<C,N,D> implements Ziro
         const { additionalData, ...rest } = this.getData()
         return new ZiroPromptMessage({
             ...rest,
-            additionalData: { ...(additionalData||{} as D), ...data }
+            additionalData: { ...additionalData, ...data }
         })
     }
 }
@@ -69,3 +69,8 @@ export class ZiroPromptMessage<C,N,D> extends ZiroMessage<C,N,D> implements Ziro
 export const isPrompt = function<C = string,N = string,D = any>(obj: any): obj is ZiroPromptMessage<C,N,D> {
     return typeof obj === "object" && ("$$promptMessage" in obj) && obj.$$promptMessage
 }
+
+type PromptMessageCollection = { [key: string]: ZiroPromptMessage<string, string, any> }
+export type GetPromptCode<V extends PromptMessageCollection,N extends keyof V> = V[N] extends ZiroPromptFullData<infer C,any> ? C : never
+export type GetPromptData<V extends PromptMessageCollection,N extends keyof V> = V[N] extends ZiroPromptFullData<any,infer D> ? D : never
+export type PromptMessage<V extends PromptMessageCollection,N extends keyof V,D> = ZiroPromptMessage<GetPromptCode<V,N>,N,D>
