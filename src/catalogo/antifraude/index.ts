@@ -1,4 +1,5 @@
-export * as biometry from "./biometry"
-export * as common from "./common"
-export * as fullOCR from "./fullOCR"
-export * as registerCard from "./registerCard"
+import * as biometry from "./biometry"
+import * as common from "./common"
+import * as fullOCR from "./fullOCR"
+import * as registerCard from "./registerCard"
+export { biometry, common, fullOCR, registerCard }
