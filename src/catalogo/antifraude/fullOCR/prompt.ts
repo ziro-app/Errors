@@ -170,4 +170,14 @@ SAME_DOC_CNHV: FullOCRPromptData<"0041"> = {
     userResolution: "Envie um documento pertencente ao portador do cartão que está sendo cadastrado.",
     internalDescription: "O usuário tentou enviar uma selfie no momento que deveria ter enviado uma foto do documento.",
     additionalData: undefined
+},
+INITIAL_CNH_FRENTE: FullOCRPromptData<"0042"> = {
+    code: "0042",
+    type: "neutral",
+    title: "Frente da CNH",
+    illustration: "profileData",
+    userDescription: "Para poder utilizar o cartão, é necessário uma imagem da frente da CNH.",
+    userResolution: "Envie uma imagem da frente da CNH do portador do cartão.",
+    internalDescription: "O usuário precisa enviar uma imagem da frente da CNH para avaliação junto a nextcode",
+    additionalData: undefined
 }

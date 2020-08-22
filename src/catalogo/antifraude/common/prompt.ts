@@ -34,7 +34,17 @@ TOO_MANY_ATTEMPTS: CommonAntifraudePromptData<"0077"> = {
 CANNOT_SAVE_TO_FIRESTORE: CommonAntifraudePromptData<"0078"> = {
     code: "0078",
     type: "destructive",
-    title: "Tentativas excedidas",
+    title: "CANNOT_SAVE_TO_FIRESTORE",
+    illustration: "paymentError",
+    userDescription: "Parece que o processo falhou muitas vezes seguidas.",
+    userResolution: "Contate o suporte para continuar.",
+    internalDescription: "O usuário tentou realizar o mesmo procedimento muitas vezes sem sucesso e por isso foi impossibilitado de continuar.",
+    additionalData: undefined
+},
+CANNOT_UPLOAD_PICTURE_DO_STORAGE: CommonAntifraudePromptData<"0079"> = {
+    code: "0079",
+    type: "destructive",
+    title: "CANNOT_SAVE_TO_FIRESTORE",
     illustration: "paymentError",
     userDescription: "Parece que o processo falhou muitas vezes seguidas.",
     userResolution: "Contate o suporte para continuar.",
