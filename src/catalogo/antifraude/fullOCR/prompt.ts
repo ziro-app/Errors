@@ -36,7 +36,7 @@ DOC_READABILITY: FullOCRPromptData<"0028"> = {
     type: "neutral",
     title: "Documento legível",
     illustration: "profileData",
-    userDescription: "É necessário que o documento esteja legível para que as informações sejam extraídas.",
+    userDescription: "O documento precisa estar legível para que as informações sejam extraídas.",
     userResolution: "Aproxime bem a câmera e retire-o do plástico.",
     internalDescription: "O usuário precisa enviar uma imagem de boa qualidade para que a nextcode possa extrair as informações",
     additionalData: undefined
@@ -88,7 +88,7 @@ UNRECOGNIZED_FACE_OBJECT: FullOCRPromptData<"0033"> = {
     illustration: "paymentError",
     userDescription: "Ocorreu um erro ao tentar analisar o documento.",
     userResolution: "Entre em contato com o suporte.",
-    internalDescription: "A análise do rosto gerou uma resposta da nextcode contendo um objeto desconhecido (não tipado). Entre em contato com os devs",
+    internalDescription: "A análise do rosto gerou uma resposta da nextcode contendo um objeto desconhecido (necessário tipagem e lógica). Entre em contato com os devs",
     additionalData: undefined
 },
 FIRST_NAME_MISMATCH: FullOCRPromptData<"0034"> = {
@@ -118,7 +118,7 @@ UNRECOGNIZED_RESPONSE: FullOCRPromptData<"0036"> = {
     illustration: "paymentError",
     userDescription: "Ocorreu um erro ao tentar analisar o documento.",
     userResolution: "Entre em contato com o suporte.",
-    internalDescription: "A resposta recebida da nextcode é diferente da esperada e o código não está pronto para processa-la (não tipado). Entre em contato com os devs",
+    internalDescription: "A resposta recebida da nextcode é diferente da esperada e o código não está pronto para processa-la (necessário tipagem e lógica). Entre em contato com os devs",
     additionalData: undefined
 },
 UNKNOWN_DOCUMENT_TYPE: FullOCRPromptData<"0037"> = {
@@ -176,7 +176,7 @@ INITIAL_CNH_FRENTE: FullOCRPromptData<"0042"> = {
     type: "neutral",
     title: "Frente da CNH",
     illustration: "profileData",
-    userDescription: "Imagem deve conter a frente da CNH.",
+    userDescription: "",
     userResolution: "Envie uma imagem da frente da CNH do titular do cartão.",
     internalDescription: "O usuário precisa enviar uma imagem da frente da CNH para avaliação junto a nextcode",
     additionalData: undefined
