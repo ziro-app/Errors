@@ -1,28 +1,42 @@
 {
-    "Catalog": {
-        "Antifraude": {
-            "RegisterCard": {
-                "RegisterCardPrompt": [0,19],
-                "RegisterCardWaiting": [20,24]
-            },
-            "FullOCR": {
-                "FullOCRPrompt": [25,44],
-                "FullOCRWaiting": [45,49]
-            },
-            "Biometry": {
-                "BiometryPrompt": [50,69],
-                "BiometryWaiting": [70,74]
-            },
-            "CommonAntifraude": {
-                "CommonAntifraudePrompt": [75,94],
-                "CommonAntifraudeWaiting": [95,99]
-            }
-        }
-    },
-    "NextCode": {
-        "NextCodePrompt": [100,110,[["status","HTTPErrorStatus"]]]
-    },
-    "Zoop": {
-        "ZoopPrompt": [200,210,[["status","HTTPErrorStatus"]]]
-    }
+	"Catalog": {
+		"Antifraude": {
+			"RegisterCard": {
+				"RegisterCardPrompt": [0, 19],
+				"RegisterCardWaiting": [20, 24]
+			},
+			"FullOCR": {
+				"FullOCRPrompt": [25, 44],
+				"FullOCRWaiting": [45, 49]
+			},
+			"Biometry": {
+				"BiometryPrompt": [50, 69],
+				"BiometryWaiting": [70, 74]
+			},
+			"CommonAntifraude": {
+				"CommonAntifraudePrompt": [75, 94],
+				"CommonAntifraudeWaiting": [95, 99]
+			}
+		},
+		"Pay": {
+			"ChooseCard": {
+				"ChooseCardPrompt": [100, 119],
+				"ChooseCardWaiting": [120, 124]
+			}
+		}
+	},
+	"NextCode": {
+		"NextCodePrompt": [1000, 1100, [["status", "HTTPErrorStatus"]]]
+	},
+	"Zoop": {
+		"ZoopPrompt": [
+			2000,
+			2100,
+			[
+				["status", "HTTPErrorStatus"],
+				["type", "string"],
+				["category", "string"]
+			]
+		]
+	}
 }

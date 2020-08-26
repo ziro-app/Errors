@@ -1,4 +1,4 @@
-import { createPromptClassObject, createWaitingClassObject } from "../../../utils"
+import { createPromptClassObject, createWaitingClassObject } from "../../../utils";
 
 // import * as promptMessages from "./prompt"
 // export const prompt = createPromptClassObject(promptMessages)
