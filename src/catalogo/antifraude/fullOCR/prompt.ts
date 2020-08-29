@@ -157,7 +157,7 @@ export const /* revisado */
 		type: "destructive",
 		title: "Upload do documento",
 		illustration: "paymentError",
-		userDescription: "Imagem deve ser de um documento.",
+		userDescription: "Parece que você enviou uma selfie. Imagem deve ser de um documento.",
 		userResolution: "Envie um documento pertencente ao titular do cartão.",
 		internalDescription:
 			"O usuário tentou enviar uma selfie no momento que deveria ter enviado uma foto do documento.",
@@ -168,7 +168,7 @@ export const /* revisado */
 		type: "destructive",
 		title: "Upload do documento",
 		illustration: "paymentError",
-		userDescription: "Imagem deve ser de um documento.",
+		userDescription: "Parece que você enviou uma selfie. Imagem deve ser de um documento.",
 		userResolution: "Envie um documento pertencente ao titular do cartão.",
 		internalDescription:
 			"O usuário tentou enviar uma selfie no momento que deveria ter enviado uma foto do documento.",
@@ -179,7 +179,7 @@ export const /* revisado */
 		type: "destructive",
 		title: "Upload do documento",
 		illustration: "paymentError",
-		userDescription: "Imagem deve ser de um documento.",
+		userDescription: "Parece que você enviou uma selfie. Imagem deve ser de um documento.",
 		userResolution: "Envie um documento pertencente ao titular do cartão.",
 		internalDescription:
 			"O usuário tentou enviar uma selfie no momento que deveria ter enviado uma foto do documento.",
@@ -190,7 +190,7 @@ export const /* revisado */
 		type: "destructive",
 		title: "Upload do documento",
 		illustration: "paymentError",
-		userDescription: "Imagem deve ser de um documento.",
+		userDescription: "Parece que você enviou uma selfie. Imagem deve ser de um documento.",
 		userResolution: "Envie um documento pertencente ao titular do cartão.",
 		internalDescription:
 			"O usuário tentou enviar uma selfie no momento que deveria ter enviado uma foto do documento.",
