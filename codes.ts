@@ -180,7 +180,7 @@ export type CommonAntifraudeWaitingData<C extends CommonAntifraudeWaitingCodes> 
 /**
  * PAY
  */
-export type PayCodes = ChooseCardCodes;
+export type PayCodes = ChooseCardCodes | CommonPayCodes;
 /**
  * CHOOSECARD
  */
@@ -211,6 +211,36 @@ export type ChooseCardPromptData<C extends ChooseCardPromptCodes> = ZiroPromptFu
 
 export type ChooseCardWaitingCodes = "0120" | "0121" | "0122" | "0123" | "0124";
 export type ChooseCardWaitingData<C extends ChooseCardWaitingCodes> = ZiroWaitingFullData<C>;
+/**
+ * COMMONPAY
+ */
+export type CommonPayCodes = CommonPayPromptCodes | CommonPayWaitingCodes;
+
+export type CommonPayPromptCodes =
+	| "0125"
+	| "0126"
+	| "0127"
+	| "0128"
+	| "0129"
+	| "0130"
+	| "0131"
+	| "0132"
+	| "0133"
+	| "0134"
+	| "0135"
+	| "0136"
+	| "0137"
+	| "0138"
+	| "0139"
+	| "0140"
+	| "0141"
+	| "0142"
+	| "0143"
+	| "0144";
+export type CommonPayPromptData<C extends CommonPayPromptCodes> = ZiroPromptFullData<C>;
+
+export type CommonPayWaitingCodes = "0145" | "0146" | "0147" | "0148" | "0149";
+export type CommonPayWaitingData<C extends CommonPayWaitingCodes> = ZiroWaitingFullData<C>;
 /**
  * NEXTCODE
  */

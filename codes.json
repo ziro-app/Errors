@@ -22,6 +22,10 @@
 			"ChooseCard": {
 				"ChooseCardPrompt": [100, 119],
 				"ChooseCardWaiting": [120, 124]
+			},
+			"CommonPay": {
+				"CommonPayPrompt": [125, 144],
+				"CommonPayWaiting": [145, 149]
 			}
 		}
 	},
