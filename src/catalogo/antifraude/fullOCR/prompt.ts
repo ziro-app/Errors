@@ -168,8 +168,8 @@ export const /* revisado */
 		type: "destructive",
 		title: "Upload do documento",
 		illustration: "paymentError",
-		userDescription: "Parece que você enviou uma selfie. Imagem deve ser de um documento.",
-		userResolution: "Envie um documento pertencente ao titular do cartão.",
+		userDescription: "Parece que você enviou a frente do RG novamente.",
+		userResolution: "Envie o verso do RG pertencente ao titular do cartão.",
 		internalDescription:
 			"O usuário tentou enviar uma selfie no momento que deveria ter enviado uma foto do documento.",
 		additionalData: undefined,
@@ -179,8 +179,8 @@ export const /* revisado */
 		type: "destructive",
 		title: "Upload do documento",
 		illustration: "paymentError",
-		userDescription: "Parece que você enviou uma selfie. Imagem deve ser de um documento.",
-		userResolution: "Envie um documento pertencente ao titular do cartão.",
+		userDescription: "Parece que você enviou o verso do RG novamente.",
+		userResolution: "Envie a frente do RG pertencente ao titular do cartão.",
 		internalDescription:
 			"O usuário tentou enviar uma selfie no momento que deveria ter enviado uma foto do documento.",
 		additionalData: undefined,
@@ -190,8 +190,8 @@ export const /* revisado */
 		type: "destructive",
 		title: "Upload do documento",
 		illustration: "paymentError",
-		userDescription: "Parece que você enviou uma selfie. Imagem deve ser de um documento.",
-		userResolution: "Envie um documento pertencente ao titular do cartão.",
+		userDescription: "Parece que você enviou o verso da CNH novamente.",
+		userResolution: "Envie a frente da CNH pertencente ao titular do cartão.",
 		internalDescription:
 			"O usuário tentou enviar uma selfie no momento que deveria ter enviado uma foto do documento.",
 		additionalData: undefined,
@@ -224,6 +224,7 @@ export const /* revisado */
 		illustration: "profileData",
 		userDescription: "Seu cartão foi para análise adicional.",
 		userResolution: "Aguarde alguns minutos enquanto finalizamos.",
-		internalDescription: "O score de confiança da nextcode ficou abaixo de 90. Isso indica a necessidade de aprovação manual do cartão.",
+		internalDescription:
+			"O score de confiança da nextcode ficou abaixo de 90. Isso indica a necessidade de aprovação manual do cartão.",
 		additionalData: undefined,
 	};
