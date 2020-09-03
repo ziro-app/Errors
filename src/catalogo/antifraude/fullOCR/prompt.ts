@@ -84,7 +84,7 @@ export const /* revisado */
 	CANNOT_ANALYZE_FACE: FullOCRPromptData<"0032"> = {
 		code: "0032",
 		type: "destructive",
-		title: "Rosto com qualidade insuficiente",
+		title: "Foto com qualidade insuficiente",
 		illustration: "paymentError",
 		userDescription: "Qualidade insuficiente para análise do rosto.",
 		userResolution:
@@ -210,20 +210,20 @@ export const /* revisado */
 	PROBABILITY_UNDER_60: FullOCRPromptData<"0043"> = {
 		code: "0043",
 		type: "destructive",
-		title: "PROBABILITY_UNDER_60",
+		title: "Cartão recusado",
 		illustration: "profileData",
-		userDescription: "PROBABILITY_UNDER_60",
-		userResolution: "PROBABILITY_UNDER_60",
-		internalDescription: "PROBABILITY_UNDER_60",
+		userDescription: "Não foi possivel aprovar seu cartão.",
+		userResolution: "Entre em contato com o suporte para maiores detalhes.",
+		internalDescription: "O score de confiança da nextcode ficou abaixo de 60. Isso indica uma rejeição do cartão.",
 		additionalData: undefined,
 	},
 	PROBABILITY_UNDER_90: FullOCRPromptData<"0044"> = {
 		code: "0044",
 		type: "destructive",
-		title: "PROBABILITY_UNDER_90",
+		title: "Análise adicional",
 		illustration: "profileData",
-		userDescription: "PROBABILITY_UNDER_90",
-		userResolution: "PROBABILITY_UNDER_90",
-		internalDescription: "PROBABILITY_UNDER_90",
+		userDescription: "Seu cartão foi para análise adicional.",
+		userResolution: "Aguarde alguns minutos enquanto finalizamos.",
+		internalDescription: "O score de confiança da nextcode ficou abaixo de 90. Isso indica a necessidade de aprovação manual do cartão.",
 		additionalData: undefined,
 	};
