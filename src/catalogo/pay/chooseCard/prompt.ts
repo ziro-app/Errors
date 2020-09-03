@@ -23,10 +23,10 @@ export const DELETE_CARD: ChooseCardPromptData<"0100"> = {
 	PENDING_MANUAL_APPROVAL: ChooseCardPromptData<"0102"> = {
 		code: "0102",
 		type: "destructive",
-		title: "Pendente aprovação",
+		title: "Cartão em análise",
 		illustration: "paymentError",
 		userDescription: "Seu cartão está em análise.",
-		userResolution: "Aguarde alguns minutos até a aprovação.",
+		userResolution: "Aguarde alguns minutos até a liberação.",
 		internalDescription: "O usuário tentou usar um cartão pendente de aprovação manual",
 		additionalData: undefined,
 	};

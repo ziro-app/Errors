@@ -7,7 +7,7 @@ export const DOC_TOO_MANY_FACES: BiometryPromptData<"0050"> = {
 		illustration: "paymentError",
 		userDescription: "A foto do documento apresentou múltiplas pessoas.",
 		userResolution: "Retorne à página anterior e envie um documento do titular do cartão.",
-		internalDescription: "A resposta da nextcode indicou múltiplas pessoas na foto do documento. Deve haver apenas o a foto do rosto do titular do cartão.",
+		internalDescription: "A resposta da nextcode indicou múltiplas pessoas na foto do documento. Deve haver apenas o rosto do titular do cartão.",
 		additionalData: undefined,
 	},
 	SELFIE_TOO_MANY_FACES: BiometryPromptData<"0051"> = {
@@ -17,7 +17,7 @@ export const DOC_TOO_MANY_FACES: BiometryPromptData<"0050"> = {
 		illustration: "paymentError",
 		userDescription: "A foto apresentou múltiplas pessoas.",
 		userResolution: "Envie uma nova foto contendo apenas o titular do cartão.",
-		internalDescription: "A resposta da nextcode indicou múltiplas pessoas na foto. Deve haver apenas o a foto do rosto do titular do cartão.",
+		internalDescription: "A resposta da nextcode indicou múltiplas pessoas na foto. Deve haver apenas o rosto do titular do cartão.",
 		additionalData: undefined,
 	},
 	DOC_NO_FACE: BiometryPromptData<"0052"> = {
@@ -33,7 +33,7 @@ export const DOC_TOO_MANY_FACES: BiometryPromptData<"0050"> = {
 	SELFIE_NO_FACE: BiometryPromptData<"0053"> = {
 		code: "0053",
 		type: "destructive",
-		title: "Foto sem rosto",
+		title: "Rosto não encontrado",
 		illustration: "paymentError",
 		userDescription: "A foto enviada não contém um rosto.",
 		userResolution: "Envie uma foto do rosto da mesma pessoa do documento.",
@@ -73,10 +73,10 @@ export const DOC_TOO_MANY_FACES: BiometryPromptData<"0050"> = {
 	CONFIDENCE_UNDER_90: BiometryPromptData<"0057"> = {
 		code: "0057",
 		type: "destructive",
-		title: "Score abaixo de 90",
+		title: "Análise adicional",
 		illustration: "paymentError",
-		userDescription: "",
-		userResolution: "",
+		userDescription: "Seu cartão foi para análise adicional.",
+		userResolution: "Aguarde alguns minutos enquanto finalizamos.",
 		internalDescription: "O score de confiança da nextcode ficou abaixo de 90. Isso indica a necessidade de aprovação manual do cartão.",
 		additionalData: undefined,
 	},
