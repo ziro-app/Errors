@@ -7,7 +7,8 @@ export const DOC_TOO_MANY_FACES: BiometryPromptData<"0050"> = {
 		illustration: "paymentError",
 		userDescription: "A foto do documento apresentou múltiplas pessoas.",
 		userResolution: "Retorne à página anterior e envie um documento do titular do cartão.",
-		internalDescription: "A resposta da nextcode indicou múltiplas pessoas na foto do documento. Deve haver apenas o rosto do titular do cartão.",
+		internalDescription:
+			"A resposta da nextcode indicou múltiplas pessoas na foto do documento. Deve haver apenas o rosto do titular do cartão.",
 		additionalData: undefined,
 	},
 	SELFIE_TOO_MANY_FACES: BiometryPromptData<"0051"> = {
@@ -17,7 +18,8 @@ export const DOC_TOO_MANY_FACES: BiometryPromptData<"0050"> = {
 		illustration: "paymentError",
 		userDescription: "A foto apresentou múltiplas pessoas.",
 		userResolution: "Envie uma nova foto contendo apenas o titular do cartão.",
-		internalDescription: "A resposta da nextcode indicou múltiplas pessoas na foto. Deve haver apenas o rosto do titular do cartão.",
+		internalDescription:
+			"A resposta da nextcode indicou múltiplas pessoas na foto. Deve haver apenas o rosto do titular do cartão.",
 		additionalData: undefined,
 	},
 	DOC_NO_FACE: BiometryPromptData<"0052"> = {
@@ -27,7 +29,8 @@ export const DOC_TOO_MANY_FACES: BiometryPromptData<"0050"> = {
 		illustration: "paymentError",
 		userDescription: "Documento deve mostrar o rosto do titular do cartão.",
 		userResolution: "Retorne à página anterior e envie um documento com foto.",
-		internalDescription: "A resposta da nextcode não contém nenhum objeto do tipo face, o que indica que a imagem não contém a foto de um rosto",
+		internalDescription:
+			"A resposta da nextcode não contém nenhum objeto do tipo face, o que indica que a imagem não contém a foto de um rosto",
 		additionalData: undefined,
 	},
 	SELFIE_NO_FACE: BiometryPromptData<"0053"> = {
@@ -47,7 +50,8 @@ export const DOC_TOO_MANY_FACES: BiometryPromptData<"0050"> = {
 		illustration: "paymentError",
 		userDescription: "Não foi possível comparar a foto com o rosto do documento.",
 		userResolution: "Retire bonés, óculos e encontre um lugar bem iluminado.",
-		internalDescription: "A resposta recebida da nextcode indica que a comparação entre selfie e documento não foi possível.",
+		internalDescription:
+			"A resposta recebida da nextcode indica que a comparação entre selfie e documento não foi possível.",
 		additionalData: undefined,
 	},
 	NOT_IDENTICAL: BiometryPromptData<"0055"> = {
@@ -57,7 +61,8 @@ export const DOC_TOO_MANY_FACES: BiometryPromptData<"0050"> = {
 		illustration: "paymentError",
 		userDescription: "O rosto da foto está diferente do rosto do documento.",
 		userResolution: "Faça um novo envio de foto ou novo envio de documento.",
-		internalDescription: "A resposta recebida da nextcode indica que não houve match entre selfie e rosto no documento.",
+		internalDescription:
+			"A resposta recebida da nextcode indica que não houve match entre selfie e rosto no documento.",
 		additionalData: undefined,
 	},
 	CONFIDENCE_UNDER_60: BiometryPromptData<"0056"> = {
@@ -77,7 +82,8 @@ export const DOC_TOO_MANY_FACES: BiometryPromptData<"0050"> = {
 		illustration: "paymentError",
 		userDescription: "Seu cartão foi para análise adicional.",
 		userResolution: "Aguarde alguns minutos enquanto finalizamos.",
-		internalDescription: "O score de confiança da nextcode ficou abaixo de 90. Isso indica a necessidade de aprovação manual do cartão.",
+		internalDescription:
+			"O score de confiança da nextcode ficou abaixo de 90. Isso indica a necessidade de aprovação manual do cartão.",
 		additionalData: undefined,
 	},
 	UNRECOGNIZED_RESPONSE: BiometryPromptData<"0058"> = {
@@ -105,9 +111,10 @@ export const DOC_TOO_MANY_FACES: BiometryPromptData<"0050"> = {
 		code: "0060",
 		type: "neutral",
 		title: "Foto do titular",
-		illustration: "paymentError",
+		illustration: "profileData",
 		userDescription: "Agora envie uma foto da mesma pessoa do documento.",
 		userResolution: "Enquadre bem e procure ambiente iluminado.",
-		internalDescription: "O usuário precisa enviar uma selfie para comparação com o rosto no documento junto a nextcode",
+		internalDescription:
+			"O usuário precisa enviar uma selfie para comparação com o rosto no documento junto a nextcode",
 		additionalData: undefined,
 	};
