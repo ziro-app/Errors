@@ -32,7 +32,8 @@ const taken = [];
 
 const prepareAdditionalData = (addtionalData) => {
 	const strs = addtionalData.map(([name, type]) => {
-		const generic = name.slice(0, 1).toUpperCase() + name.slice(1);
+		const generic =
+			name.slice(0, 1).toUpperCase() + name.replace(/_[a-z]/g, (c) => c.replace("_", "").toUpperCase()).slice(1);
 		return [`${name}: ${generic}`, `${generic} extends ${type}`];
 	});
 	const [names, types] = strs.reduce(

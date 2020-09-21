@@ -6,7 +6,7 @@
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"prepare": "npm version patch && tsc",
-		"postpublish": "rm -rf ./dist",
+		"postpublish": "rm -rf ./dist && git push",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {

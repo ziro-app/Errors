@@ -35,12 +35,13 @@
 	"Zoop": {
 		"ZoopPrompt": [
 			2000,
-			2100,
+			2099,
 			[
 				["status", "HTTPErrorStatus"],
 				["type", "string"],
 				["category", "string"]
 			]
-		]
+		],
+		"RedePrompt": [2100, 2199, [["response_code", "string"]]]
 	}
 }
