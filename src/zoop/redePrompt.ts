@@ -123,10 +123,10 @@ export const PROBLEMS_ON_THE_CARD: RedePromptData<"2100", "101"> = {
 	IDENTIFIED_MODERATE_RISK_BY_THE_ISSUER: RedePromptData<"2112", "113"> = {
 		code: "2112",
 		type: "destructive",
-		title: "Contate suporte",
+		title: "Contate seu banco",
 		illustration: "profileData",
 		userDescription: "O emissor do cartão (seu banco) recusou a transação.",
-		userResolution: "A Ziro vai te ajudar a resolver o problema.",
+		userResolution: "Fale com seu banco para liberar o cartão e tente novamente.",
 		internalDescription: "Adquirente retornou: '113 - Unauthorized. Identified moderate risk by the issuer.'",
 		additionalData: { response_code: "113" },
 	},
