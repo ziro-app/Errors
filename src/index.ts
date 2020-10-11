@@ -10,7 +10,8 @@ axios
 	.then(({ data }) => {
 		const current = packageJson.version;
 		const { latest } = data["dist-tags"];
-		// eslint-disable-next-line no-console
-		if (current !== latest) console.error("YOU ARE RUNNING AN OUTDATED VERSION OF ZIRO-MESSAGES, PLEASE UPDATE");
+		if (current < latest)
+			// eslint-disable-next-line no-console
+			console.error("YOU ARE RUNNING AN OUTDATED VERSION OF ZIRO-MESSAGES, PLEASE UPDATE", { current, latest });
 	})
 	.catch(() => null);
