@@ -30,6 +30,8 @@ const fourDigits = (str) => {
 
 const taken = [];
 
+const codes = [];
+
 const prepareAdditionalData = (addtionalData) => {
 	const strs = addtionalData.map(([name, type]) => {
 		const generic =
@@ -58,6 +60,7 @@ function write(obj = { Ziro }) {
 					.map((n) => {
 						// eslint-disable-next-line @typescript-eslint/no-throw-literal
 						if (taken[n + lowerBound]) throw `CODE COLLISION, PLEASE VERIFY CODES FOR ${key}`;
+						codes.push(n + lowerBound);
 						taken[n + lowerBound] = true;
 						return `"${fourDigits(`${n + lowerBound}`)}"`;
 					})
@@ -76,3 +79,7 @@ function write(obj = { Ziro }) {
 const str = header + write();
 
 fs.writeFileSync(`${__dirname}/codes.ts`, str);
+
+const takenFile = `export default ${JSON.stringify(codes)}`;
+
+fs.writeFileSync(`${__dirname}/takenCodes.ts`, takenFile);
