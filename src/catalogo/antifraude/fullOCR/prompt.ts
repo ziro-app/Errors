@@ -143,10 +143,10 @@ export const /* revisado */
 	UNKNOWN_DOCUMENT_TYPE: FullOCRPromptData<"0037"> = {
 		code: "0037",
 		type: "destructive",
-		title: "Erro na análise do tipo",
+		title: "Documento não reconhecido",
 		illustration: "paymentError",
 		userDescription: "Ocorreu um erro no reconhecimento do tipo do documento.",
-		userResolution: "Entre em contato com o suporte.",
+		userResolution: "Envie novamente uma CNH ou RG.",
 		internalDescription:
 			"A resposta recebida da nextcode categorizou o documento como um formato diferente do esperado",
 		additionalData: undefined,
