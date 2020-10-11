@@ -9,7 +9,7 @@ type Entry<V> = [string, V];
 type O<V> = { [key: string]: V };
 
 function entries<V>(obj: O<V>): Entry<V>[] {
-    return (Object as any).entries(obj);
+	return (Object as any).entries(obj);
 }
 
 /**
@@ -18,14 +18,17 @@ function entries<V>(obj: O<V>): Entry<V>[] {
 
 type PromptDataObject = { [key: string]: ZiroPromptFullData<string, any> };
 type PromptClassObject<V> = {
-    [N in keyof V]: V[N] extends ZiroPromptFullData<infer C, infer D> ? ZiroPromptMessage<C, N, D> : never;
+	[N in keyof V]: V[N] extends ZiroPromptFullData<infer C, infer D> ? ZiroPromptMessage<C, N, D> : never;
 };
 
 export function createPromptClassObject<V extends PromptDataObject>(pack: V): PromptClassObject<V> {
-    return entries(pack).reduce(
-        (acc, [name, data]) => ({ ...acc, [name]: new ZiroPromptMessage({ ...data, name }) }),
-        {} as any,
-    );
+	return entries(pack).reduce(
+		(acc, [name, data]) => ({
+			...acc,
+			[name]: new ZiroPromptMessage({ ...data, isDefaultMessage: true, name } as any),
+		}),
+		{} as any,
+	);
 }
 
 /**
@@ -34,12 +37,15 @@ export function createPromptClassObject<V extends PromptDataObject>(pack: V): Pr
 
 type WaitingDataObject = { [key: string]: ZiroWaitingFullData<string, any> };
 type WaitingClassObject<V> = {
-    [N in keyof V]: V[N] extends ZiroWaitingFullData<infer C, infer D> ? ZiroWaitingMessage<C, N, D> : never;
+	[N in keyof V]: V[N] extends ZiroWaitingFullData<infer C, infer D> ? ZiroWaitingMessage<C, N, D> : never;
 };
 
 export function createWaitingClassObject<V extends WaitingDataObject>(pack: V): WaitingClassObject<V> {
-    return entries(pack).reduce(
-        (acc, [name, data]) => ({ ...acc, [name]: new ZiroWaitingMessage({ ...data, name }) }),
-        {} as any,
-    );
+	return entries(pack).reduce(
+		(acc, [name, data]) => ({
+			...acc,
+			[name]: new ZiroWaitingMessage({ ...data, isDefaultMessage: true, name } as any),
+		}),
+		{} as any,
+	);
 }

@@ -55,7 +55,8 @@ export abstract class ZiroMessage<C, N, D> implements ZiroProps<C, N, D> {
 	constructor(props: ZiroProps<C, N, D>) {
 		const codeNumber = Number(props.code);
 		if (Number.isNaN(codeNumber)) throw new Error(`INVALID CODE NUMBER ${props.code}`);
-		if (takenCodes.includes(codeNumber)) throw new Error(`CODE ${props.code} ALREADY IN USE`);
+		if (!(props as any).isDefaultMessage && takenCodes.includes(codeNumber))
+			throw new Error(`CODE ${props.code} ALREADY IN USE`);
 		this.name = props.name;
 		this.type = props.type;
 		this.code = props.code;
