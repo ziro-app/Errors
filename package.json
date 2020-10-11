@@ -19,7 +19,10 @@
 		"url": "https://github.com/ziro-app/Messages/issues"
 	},
 	"homepage": "https://github.com/ziro-app/Messages#readme",
-	"dependencies": {},
+	"dependencies": {
+		"@types/pacote": "^11.1.0",
+		"pacote": "^11.1.11"
+	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "3.10.1",
 		"@typescript-eslint/parser": "3.10.1",

@@ -6,6 +6,8 @@
 		"outDir": "./dist",
 		"strict": true,
 		"inlineSources": true,
-		"inlineSourceMap": true
+		"inlineSourceMap": true,
+		"resolveJsonModule": true,
+		"esModuleInterop": true
 	}
 }
