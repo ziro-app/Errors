@@ -26,6 +26,14 @@
 			"CommonPay": {
 				"CommonPayPrompt": [125, 144],
 				"CommonPayWaiting": [145, 149]
+			},
+			"Checkout": {
+				"CheckoutPrompt": [150, 169],
+				"CheckoutWaiting": [170, 174]
+			},
+			"Preview": {
+				"PreviewPrompt": [175, 194],
+				"PreviewWaiting": [195, 199]
 			}
 		}
 	},

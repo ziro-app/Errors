@@ -180,7 +180,7 @@ export type CommonAntifraudeWaitingData<C extends CommonAntifraudeWaitingCodes> 
 /**
  * PAY
  */
-export type PayCodes = ChooseCardCodes | CommonPayCodes;
+export type PayCodes = ChooseCardCodes | CommonPayCodes | CheckoutCodes | PreviewCodes;
 /**
  * CHOOSECARD
  */
@@ -241,6 +241,66 @@ export type CommonPayPromptData<C extends CommonPayPromptCodes> = ZiroPromptFull
 
 export type CommonPayWaitingCodes = "0145" | "0146" | "0147" | "0148" | "0149";
 export type CommonPayWaitingData<C extends CommonPayWaitingCodes> = ZiroWaitingFullData<C>;
+/**
+ * CHECKOUT
+ */
+export type CheckoutCodes = CheckoutPromptCodes | CheckoutWaitingCodes;
+
+export type CheckoutPromptCodes =
+	| "0150"
+	| "0151"
+	| "0152"
+	| "0153"
+	| "0154"
+	| "0155"
+	| "0156"
+	| "0157"
+	| "0158"
+	| "0159"
+	| "0160"
+	| "0161"
+	| "0162"
+	| "0163"
+	| "0164"
+	| "0165"
+	| "0166"
+	| "0167"
+	| "0168"
+	| "0169";
+export type CheckoutPromptData<C extends CheckoutPromptCodes> = ZiroPromptFullData<C>;
+
+export type CheckoutWaitingCodes = "0170" | "0171" | "0172" | "0173" | "0174";
+export type CheckoutWaitingData<C extends CheckoutWaitingCodes> = ZiroWaitingFullData<C>;
+/**
+ * PREVIEW
+ */
+export type PreviewCodes = PreviewPromptCodes | PreviewWaitingCodes;
+
+export type PreviewPromptCodes =
+	| "0175"
+	| "0176"
+	| "0177"
+	| "0178"
+	| "0179"
+	| "0180"
+	| "0181"
+	| "0182"
+	| "0183"
+	| "0184"
+	| "0185"
+	| "0186"
+	| "0187"
+	| "0188"
+	| "0189"
+	| "0190"
+	| "0191"
+	| "0192"
+	| "0193"
+	| "0194";
+export type PreviewPromptData<C extends PreviewPromptCodes> = ZiroPromptFullData<C>;
+
+export type PreviewWaitingCodes = "0195" | "0196" | "0197" | "0198" | "0199";
+export type PreviewWaitingData<C extends PreviewWaitingCodes> = ZiroWaitingFullData<C>;
 /**
  * NEXTCODE
  */

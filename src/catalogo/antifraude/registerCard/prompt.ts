@@ -1,0 +1,1 @@
+import { RegisterCardPromptData } from "../../../../codes";
