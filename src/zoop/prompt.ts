@@ -225,7 +225,8 @@ export const UNKNOWN_ERROR: ZoopPromptData<"2000", 418, "", ""> = {
 		type: "destructive",
 		title: "Cartão não existe",
 		illustration: "profileData",
-		userDescription: "O emissor do cartão (seu banco) recusou a transação devido ao número do cartão estar incorreto.",
+		userDescription:
+			"O emissor do cartão (seu banco) recusou a transação devido ao número do cartão estar incorreto.",
 		userResolution: "Refaça o cadastro do cartão e tente novamente.",
 		internalDescription: "INVALID_CARD_NUMBER",
 		additionalData: { status: 402, type: "card_error", category: "invalid_card_number" },
@@ -235,7 +236,8 @@ export const UNKNOWN_ERROR: ZoopPromptData<"2000", 418, "", ""> = {
 		type: "destructive",
 		title: "Código de segurança incorreto",
 		illustration: "profileData",
-		userDescription: "O emissor do cartão (seu banco) recusou a transação devido ao código de segurança estar incorreto.",
+		userDescription:
+			"O emissor do cartão (seu banco) recusou a transação devido ao código de segurança estar incorreto.",
 		userResolution: "Refaça o cadastro do cartão e tente novamente.",
 		internalDescription: "INVALID_PIN_CODE",
 		additionalData: { status: 402, type: "card_error", category: "invalid_pin_code" },
@@ -289,4 +291,14 @@ export const UNKNOWN_ERROR: ZoopPromptData<"2000", 418, "", ""> = {
 		userResolution: "Tente novamente após um tempo. Se o erro persistir contate o suporte.",
 		internalDescription: "SERVER_API_ERROR",
 		additionalData: { status: 500, type: "processing_error", category: "server_api_error" },
+	},
+	RESOURCE_NOT_FOUND: ZoopPromptData<"2026", 404, "invalid_request_error", "resource_not_found"> = {
+		code: "2026",
+		type: "destructive",
+		title: "Ocorreu um erro na solicitação",
+		illustration: "profileData",
+		userDescription: "",
+		userResolution: "Tente novamente após um tempo. Se o erro persistir contate o suporte.",
+		internalDescription: "RESOURCE_NOT_FOUND",
+		additionalData: { status: 404, type: "invalid_request_error", category: "resource_not_found" },
 	};
