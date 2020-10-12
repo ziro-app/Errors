@@ -38,18 +38,20 @@ export class ZiroPromptMessage<C, N, D = undefined> extends ZiroMessage<C, N, D>
 	}
 
 	withButtons(buttons: [Button] | [Button, Button]) {
-		return new ZiroPromptMessage({
+		return new ZiroPromptMessage<C, N, D>({
 			...this.getData(),
+			isDefaultMessage: true,
 			firstButton: buttons[0],
 			secondButton: buttons[1],
-		});
+		} as any);
 	}
 
 	set<K extends keyof ZiroPromptFullData<C, D>>(variable: K, value: ZiroPromptFullData<C, D>[K]) {
-		return new ZiroPromptMessage({
+		return new ZiroPromptMessage<C, N, D>({
 			...this.getData(),
+			isDefaultMessage: true,
 			[variable]: value,
-		});
+		} as any);
 	}
 
 	getData(): Omit<ZiroPromptProps<C, N, D>, "firstButton" | "secondButton"> {
@@ -61,10 +63,11 @@ export class ZiroPromptMessage<C, N, D = undefined> extends ZiroMessage<C, N, D>
 
 	withAdditionalData<ND>(data: ND) {
 		const { additionalData, ...rest } = this.getData();
-		return new ZiroPromptMessage({
+		return new ZiroPromptMessage<C, N, D & ND>({
 			...rest,
+			isDefaultMessage: true,
 			additionalData: { ...additionalData, ...data },
-		});
+		} as any);
 	}
 }
 
