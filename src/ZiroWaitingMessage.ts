@@ -20,10 +20,11 @@ export class ZiroWaitingMessage<C, N, D = undefined> extends ZiroMessage<C, N, D
 	}
 
 	withPromise(promise: Promise<any>) {
-		return new ZiroWaitingMessage({
+		return new ZiroWaitingMessage<C, N, D>({
 			...this.getData(),
+			isDefaultMessage: true,
 			promise,
-		});
+		} as any);
 	}
 
 	set<K extends keyof ZiroWaitingFullData<C, D>>(variable: K, value: ZiroWaitingFullData<C, D>[K]) {
