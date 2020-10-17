@@ -2,7 +2,7 @@ import { ChooseCardWaitingData } from "../../../../codes";
 
 export const SENDING_PAYMENT: ChooseCardWaitingData<"0120"> = {
 	code: "0120",
-	type: "destructive",
+	type: "neutral",
 	title: "Realizando pagamento",
 	illustration: "waiting",
 	userDescription: "Aguarde enquanto realizamos o pagamento",
