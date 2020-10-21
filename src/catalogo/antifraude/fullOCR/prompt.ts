@@ -171,7 +171,7 @@ export const /* revisado */
 		userDescription: "Parece que você enviou a frente do RG novamente.",
 		userResolution: "Envie o verso do RG pertencente ao titular do cartão.",
 		internalDescription:
-			"O usuário tentou enviar uma selfie no momento que deveria ter enviado uma foto do documento.",
+			"O usuário tentou enviar a frente do RG no momento que deveria ter enviado o verso do RG.",
 		additionalData: undefined,
 	},
 	SAME_DOC_RGV: FullOCRPromptData<"0040"> = {
@@ -182,7 +182,7 @@ export const /* revisado */
 		userDescription: "Parece que você enviou o verso do RG novamente.",
 		userResolution: "Envie a frente do RG pertencente ao titular do cartão.",
 		internalDescription:
-			"O usuário tentou enviar uma selfie no momento que deveria ter enviado uma foto do documento.",
+			"O usuário tentou enviar o verso do RG no momento que deveria ter enviado a frente do RG.",
 		additionalData: undefined,
 	},
 	SAME_DOC_CNHV: FullOCRPromptData<"0041"> = {
@@ -193,7 +193,7 @@ export const /* revisado */
 		userDescription: "Parece que você enviou o verso da CNH novamente.",
 		userResolution: "Envie a frente da CNH pertencente ao titular do cartão.",
 		internalDescription:
-			"O usuário tentou enviar uma selfie no momento que deveria ter enviado uma foto do documento.",
+			"O usuário tentou enviar o verso da CNH no momento que deveria ter enviado a frente da CNH.",
 		additionalData: undefined,
 	},
 	/* revisado */
