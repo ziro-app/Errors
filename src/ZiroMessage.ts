@@ -6,7 +6,7 @@ export type Illustration =
 	| "errorLoading"
 	| "notFound"
 	| "timelineStart"
-	| "profileData"
+	| "cnhPhoto"
 	| "buy"
 	| "registerSuccess"
 	| "withoutFavorites"

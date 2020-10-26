@@ -111,7 +111,7 @@ export const DOC_TOO_MANY_FACES: BiometryPromptData<"0050"> = {
 		code: "0060",
 		type: "neutral",
 		title: "Foto do titular",
-		illustration: "profileData",
+		illustration: "cnhPhoto",
 		userDescription: "Agora envie uma foto da mesma pessoa do documento.",
 		userResolution: "Enquadre bem e procure ambiente iluminado.",
 		internalDescription:
