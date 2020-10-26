@@ -210,11 +210,11 @@ export const /* revisado */
 	PROBABILITY_UNDER_60: FullOCRPromptData<"0043"> = {
 		code: "0043",
 		type: "destructive",
-		title: "Cartão recusado",
+		title: "Documento recusado",
 		illustration: "profileData",
 		userDescription: "Não foi possivel aprovar seu cartão.",
 		userResolution: "Entre em contato com o suporte para maiores detalhes.",
-		internalDescription: "O score de confiança da nextcode ficou abaixo de 60. Isso indica uma rejeição do cartão.",
+		internalDescription: "O score de confiança da nextcode ficou abaixo de 60. Isso indica uma rejeição do documento.",
 		additionalData: undefined,
 	},
 	PROBABILITY_UNDER_90: FullOCRPromptData<"0044"> = {

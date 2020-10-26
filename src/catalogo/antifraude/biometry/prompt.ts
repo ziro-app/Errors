@@ -68,11 +68,11 @@ export const DOC_TOO_MANY_FACES: BiometryPromptData<"0050"> = {
 	CONFIDENCE_UNDER_60: BiometryPromptData<"0056"> = {
 		code: "0056",
 		type: "destructive",
-		title: "Cartão recusado",
+		title: "Foto recusada",
 		illustration: "paymentError",
 		userDescription: "Não foi possivel aprovar seu cartão.",
 		userResolution: "Entre em contato com o suporte para maiores detalhes.",
-		internalDescription: "O score de confiança da nextcode ficou abaixo de 60. Isso indica uma rejeição do cartão.",
+		internalDescription: "O score de confiança da nextcode ficou abaixo de 60. Isso indica uma rejeição da foto.",
 		additionalData: undefined,
 	},
 	CONFIDENCE_UNDER_90: BiometryPromptData<"0057"> = {
