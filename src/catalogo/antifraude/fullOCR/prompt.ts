@@ -211,7 +211,7 @@ export const /* revisado */
 		code: "0043",
 		type: "destructive",
 		title: "Documento recusado",
-		illustration: "cnhPhoto",
+		illustration: "paymentError",
 		userDescription: "Não foi possivel aprovar seu cartão.",
 		userResolution: "Entre em contato com o suporte para maiores detalhes.",
 		internalDescription: "O score de confiança da nextcode ficou abaixo de 60. Isso indica uma rejeição do documento.",
@@ -221,7 +221,7 @@ export const /* revisado */
 		code: "0044",
 		type: "destructive",
 		title: "Análise adicional",
-		illustration: "cnhPhoto",
+		illustration: "cardAnalysis",
 		userDescription: "Seu cartão foi para análise adicional.",
 		userResolution: "Aguarde alguns minutos enquanto finalizamos.",
 		internalDescription:
