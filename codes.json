@@ -1,8 +1,9 @@
 {
 	"Catalog": {
+		"CatalogUnknown": [0, 0],
 		"Antifraude": {
 			"RegisterCard": {
-				"RegisterCardPrompt": [0, 19],
+				"RegisterCardPrompt": [1, 19],
 				"RegisterCardWaiting": [20, 24]
 			},
 			"FullOCR": {
