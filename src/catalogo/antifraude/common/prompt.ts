@@ -50,4 +50,14 @@ export const NO_IMAGE: CommonAntifraudePromptData<"0075"> = {
 		userResolution: "Tente novamente após um tempo. Se o erro persistir contate o suporte.",
 		internalDescription: "A requisição para o storage de imagens no Firebase gerou erro. Contate os devs",
 		additionalData: undefined,
+	},
+	MISSING_EXTRACTED_DATA: CommonAntifraudePromptData<"0080"> = {
+		code: "0080",
+		type: "destructive",
+		title: "Não foi possível avaliar a imagem",
+		illustration: "paymentError",
+		userDescription: "Tente enviar uma imagem de melhor qualidade.",
+		userResolution: "Procure um lugar iluminado e utilize uma câmera com boa resolução",
+		internalDescription: "A requisição da nextcode não contém dados essenciais para a analise.",
+		additionalData: undefined,
 	};
