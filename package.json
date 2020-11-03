@@ -5,7 +5,7 @@
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {
-		"prepare": "npm version patch && tsc",
+		"prepare": "tsc && npm version patch",
 		"postpublish": "rm -rf ./dist && git push",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -19,7 +19,7 @@
 		"url": "https://github.com/ziro-app/Messages/issues"
 	},
 	"homepage": "https://github.com/ziro-app/Messages#readme",
-	"dependencies": {
+	"peerDependencies": {
 		"axios": "^0.20.0"
 	},
 	"devDependencies": {
