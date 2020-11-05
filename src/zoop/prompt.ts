@@ -153,10 +153,10 @@ export const UNKNOWN_ERROR: ZoopPromptData<"2000", 418, "", ""> = {
 	> = {
 		code: "2013",
 		type: "destructive",
-		title: "Ocorreu um erro na solicitação",
+		title: "Vendedor não habilitado",
 		illustration: "paymentError",
-		userDescription: "",
-		userResolution: "Tente novamente após um tempo. Se o erro persistir contate o suporte.",
+		userDescription: "Esse vendedor não está habilitado para transacionar na Ziro.",
+		userResolution: "Solicite ao vendedor que habilite as vendas por link.",
 		internalDescription: "SELLER_AUTHORIZATION_REFUSED",
 		additionalData: { status: 402, type: "invalid_request_error", category: "seller_authorization_refused" },
 	},
