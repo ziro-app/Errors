@@ -50,7 +50,10 @@ export class ZiroWaitingMessage<C, N, D = undefined> extends ZiroMessage<C, N, D
 }
 
 export function isWaiting<C = string, N = string, D = any>(obj: any): obj is ZiroWaitingMessage<C, N, D> {
-	return typeof obj === "object" && "$$waitingMessage" in obj && obj.$$waitingMessage;
+	if (obj === null) return false;
+	if (typeof obj !== "object") return false;
+	if (!("$$waitingMessage" in obj)) return false;
+	return obj.$$waitingMessage;
 }
 
 type WaitingMessageCollection = { [key: string]: ZiroWaitingMessage<string, string, any> };
