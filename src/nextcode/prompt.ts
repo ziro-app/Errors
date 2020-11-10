@@ -72,10 +72,10 @@ export const /* revisado */
 	TIMEOUT: NextCodePromptData<"1006", 408> = {
 		code: "1006",
 		type: "destructive",
-		title: "Ocorreu um erro na solicitação",
+		title: "Ocorreu uma falha na conexão",
 		illustration: "paymentError",
-		userDescription: "",
-		userResolution: "Tente novamente após um tempo. Se o erro persistir contate o suporte.",
+		userDescription: "A conexão falhou temporariamente.",
+		userResolution: "Aguarde uns minutos e tente novamente. Se o erro persistir contate o suporte.",
 		internalDescription:
 			"A requisição para a NextCode retornou um erro de Timeout, verifique os dados adcionais para saber se o timeout foi causado pelas configurações da Ziro ou pela própria NextCode.",
 		additionalData: { status: 408 },
@@ -108,10 +108,10 @@ export const /* revisado */
 	INTERNAL_SERVER_ERROR: NextCodePromptData<"1009", 500> = {
 		code: "1009",
 		type: "destructive",
-		title: "Ocorreu um erro na solicitação",
+		title: "Ocorreu uma falha na conexão",
 		illustration: "paymentError",
-		userDescription: "",
-		userResolution: "Tente novamente após um tempo. Se o erro persistir contate o suporte.",
+		userDescription: "A conexão falhou temporariamente.",
+		userResolution: "Aguarde uns minutos e tente novamente. Se o erro persistir contate o suporte.",
 		internalDescription:
 			"A requisição para a NextCode retornou um erro de Internal Server Error, o que indica um erro desconhecido da própria nextcode e que provavelmente não voltará a acontecer depois de um tempo.",
 		additionalData: { status: 500 },
@@ -120,10 +120,10 @@ export const /* revisado */
 	SERVICE_UNAVAILABLE: NextCodePromptData<"1010", 503> = {
 		code: "1010",
 		type: "destructive",
-		title: "Ocorreu um erro na solicitação",
+		title: "Ocorreu uma falha na conexão",
 		illustration: "paymentError",
-		userDescription: "",
-		userResolution: "Tente novamente após um tempo. Se o erro persistir contate o suporte.",
+		userDescription: "A conexão falhou temporariamente.",
+		userResolution: "Aguarde uns minutos e tente novamente. Se o erro persistir contate o suporte.",
 		internalDescription:
 			"A requisição para a NextCode retornou um erro de Service Unavailable, o que indica que os servidores da nextcode estão temporariamente indisponíveis, e deve se normalizar em pouco tempo.",
 		additionalData: { status: 503 },
