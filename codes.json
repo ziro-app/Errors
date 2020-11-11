@@ -36,6 +36,9 @@
 				"PreviewPrompt": [175, 194],
 				"PreviewWaiting": [195, 199]
 			}
+		},
+		"Camera": {
+			"CameraPrompt": [300, 310]
 		}
 	},
 	"NextCode": {

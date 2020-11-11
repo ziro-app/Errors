@@ -2,7 +2,7 @@ const fs = require("fs");
 
 const Ziro = require("./codes.json");
 
-const header = `/**
+const header = `/* eslint-disable */\n/**
  *      **************************************************
  *      **************************************************
  *      **** CÓDIGO GERADO AUTOMATICAMENTE, NÃO EDITE ****
