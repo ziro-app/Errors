@@ -19,9 +19,6 @@
 		"url": "https://github.com/ziro-app/Messages/issues"
 	},
 	"homepage": "https://github.com/ziro-app/Messages#readme",
-	"peerDependencies": {
-		"axios": "^0.20.0"
-	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "3.10.1",
 		"@typescript-eslint/parser": "3.10.1",

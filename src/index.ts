@@ -1,13 +1,12 @@
-import axios from "axios";
 import packageJson from "../package.json";
 
 export * from "./ZiroMessage";
 export * from "./ZiroPromptMessage";
 export * from "./ZiroWaitingMessage";
 
-axios
-	.get("https://cors-anywhere.herokuapp.com/https://registry.npmjs.org/ziro-messages")
-	.then(({ data }) => {
+fetch("https://cors-anywhere.herokuapp.com/https://registry.npmjs.org/ziro-messages", { mode: "no-cors" })
+	.then((r) => r.json())
+	.then((data) => {
 		const current = packageJson.version;
 		const { latest } = data["dist-tags"];
 		if (current < latest)
