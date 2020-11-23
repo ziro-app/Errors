@@ -58,6 +58,6 @@ export const NO_IMAGE: CommonAntifraudePromptData<"0075"> = {
 		illustration: "paymentError",
 		userDescription: "A imagem enviada não pôde ser avaliada.",
 		userResolution: "Envie uma nova imagem. Melhore iluminação, evite reflexos, aproxime bem a câmera e retire qualquer plástico.",
-		internalDescription: "A requisição da nextcode não trouxe o campo EXTRACTED e por isso não contém dados essenciais para a analise.",
+		internalDescription: "A requisição da nextcode não trouxe os campos EXTRACTED e/ou FACE e por isso não contém dados essenciais para a analise.",
 		additionalData: undefined,
 	};
