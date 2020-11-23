@@ -54,10 +54,10 @@ export const NO_IMAGE: CommonAntifraudePromptData<"0075"> = {
 	MISSING_EXTRACTED_DATA: CommonAntifraudePromptData<"0080"> = {
 		code: "0080",
 		type: "destructive",
-		title: "Não foi possível avaliar a imagem",
+		title: "Erro ao avaliar a imagem",
 		illustration: "paymentError",
-		userDescription: "Tente enviar uma imagem de melhor qualidade.",
-		userResolution: "Procure um lugar iluminado e utilize uma câmera com boa resolução",
-		internalDescription: "A requisição da nextcode não contém dados essenciais para a analise.",
+		userDescription: "A imagem enviada não pôde ser avaliada.",
+		userResolution: "Envie uma nova imagem. Melhore iluminação, evite reflexos, aproxime bem a câmera e retire qualquer plástico.",
+		internalDescription: "A requisição da nextcode não trouxe o campo EXTRACTED e por isso não contém dados essenciais para a analise.",
 		additionalData: undefined,
 	};
