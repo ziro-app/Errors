@@ -23,10 +23,8 @@ export type ZiroCodes=CatalogCodes|NextCodeCodes|ZoopCodes
 /**
  * CATALOG
  */
-export type CatalogCodes=CatalogKnownCodes|CatalogUnknownCodes|AntifraudeCodes|PayCodes|CameraCodes
+export type CatalogCodes=CatalogUnknownCodes|AntifraudeCodes|PayCodes|CameraCodes
 
-export type CatalogKnownCodes="1110"|"1111"|"1112"|"1113"|"1114"|"1115"|"1116"|"1117"|"1118"|"1119"
-export type CatalogKnownData<C extends CatalogKnownCodes> = ZiroPromptFullData<C>
 export type CatalogUnknownCodes="0000"
 export type CatalogUnknownData<C extends CatalogUnknownCodes> = ZiroPromptFullData<C>
 /**

@@ -1,5 +1,5 @@
 import * as antifraude from "./antifraude";
-import { CatalogUnknownData, CatalogKnownData } from "../../codes";
+import { CatalogUnknownData } from "../../codes";
 import { createPromptClassObject } from "../utils";
 
 const UNKNOWN_ERROR: CatalogUnknownData<"0000"> = {
@@ -13,16 +13,6 @@ const UNKNOWN_ERROR: CatalogUnknownData<"0000"> = {
 	internalDescription: "Ocorreu um erro que não está mapeado",
 	additionalData: undefined,
 };
-const CREATING_SPLIT_OBJECT_ERROR: CatalogKnownData<"1110"> = {
-	code: "1110",
-	type: "destructive",
-	title: "Ocorreu um erro no pagamento",
-	illustration: "noData",
-	userDescription: "Fique tranquilo, você não foi cobrado!",
-	userResolution: "Aconteceu um erro de split, contate o suporte!",
-	internalDescription: "CREATING_SPLIT_OBJECT_ERROR",
-	additionalData: undefined,
-};
 
 export { antifraude };
-export const prompt = createPromptClassObject({ UNKNOWN_ERROR, CREATING_SPLIT_OBJECT_ERROR });
+export const prompt = createPromptClassObject({ UNKNOWN_ERROR });
