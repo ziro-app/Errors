@@ -117,4 +117,15 @@ export const DOC_TOO_MANY_FACES: BiometryPromptData<"0050"> = {
 		internalDescription:
 			"O usuário precisa enviar uma selfie para comparação com o rosto no documento junto a nextcode",
 		additionalData: undefined,
+	},
+	DOC_INSTEAD_SELFIE: BiometryPromptData<"0061"> = {
+		code: "0061",
+		type: "destructive",
+		title: "A imagem enviada não é uma foto",
+		illustration: "paymentError",
+		userDescription: "Nesta etapa deve-se enviar uma foto do titular do cartão.",
+		userResolution: "A foto do documento não é permitida.",
+		internalDescription:
+			"O usuário enviou a foto do documento ao invés de enviar uma selfie do titular.",
+		additionalData: undefined,
 	};
