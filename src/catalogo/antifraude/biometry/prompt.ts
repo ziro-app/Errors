@@ -121,7 +121,7 @@ export const DOC_TOO_MANY_FACES: BiometryPromptData<"0050"> = {
 	DOC_INSTEAD_SELFIE: BiometryPromptData<"0061"> = {
 		code: "0061",
 		type: "destructive",
-		title: "A imagem enviada não é uma foto",
+		title: "Foto não é válida",
 		illustration: "paymentError",
 		userDescription: "Nesta etapa deve-se enviar uma foto do titular do cartão.",
 		userResolution: "A foto do documento não é permitida.",
