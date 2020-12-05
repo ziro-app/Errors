@@ -57,7 +57,19 @@ export const NO_IMAGE: CommonAntifraudePromptData<"0075"> = {
 		title: "Erro ao avaliar a imagem",
 		illustration: "paymentError",
 		userDescription: "A imagem enviada não pôde ser avaliada.",
-		userResolution: "Envie uma nova imagem. Melhore iluminação, evite reflexos, aproxime bem a câmera e retire qualquer plástico.",
-		internalDescription: "A requisição da nextcode não trouxe os campos EXTRACTED e/ou FACE e por isso não contém dados essenciais para a analise.",
+		userResolution:
+			"Envie uma nova imagem. Melhore iluminação, evite reflexos, aproxime bem a câmera e retire qualquer plástico.",
+		internalDescription:
+			"A requisição da nextcode não trouxe os campos EXTRACTED e/ou FACE e por isso não contém dados essenciais para a analise.",
+		additionalData: undefined,
+	},
+	MISSING_ZOOP_DATA: CommonAntifraudePromptData<"0081"> = {
+		code: "0081",
+		type: "destructive",
+		title: "Erro de conexão",
+		illustration: "paymentError",
+		userDescription: "Houve um erro de conexão",
+		userResolution: "Atualize a página e tente novamente.",
+		internalDescription: "Os dados do cartão recebidos da zoop estão corrompidos",
 		additionalData: undefined,
 	};
