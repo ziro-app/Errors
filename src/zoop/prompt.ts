@@ -301,4 +301,14 @@ export const UNKNOWN_ERROR: ZoopPromptData<"2000", 418, "", ""> = {
 		userResolution: "Tente novamente após um tempo. Se o erro persistir contate o suporte.",
 		internalDescription: "RESOURCE_NOT_FOUND",
 		additionalData: { status: 404, type: "invalid_request_error", category: "resource_not_found" },
+	},
+	CARD_DECLINED: ZoopPromptData<"2027", 402, "card_error", "card_declined"> = {
+		code: "2027",
+		type: "destructive",
+		title: "Não autorizado pelo banco",
+		illustration: "paymentError",
+		userDescription: "O emissor do cartão (seu banco) recusou a transação.",
+		userResolution: "Fale com seu banco para autorizar a transação.",
+		internalDescription: "CARD_DECLINED",
+		additionalData: { status: 402, type: "card_error", category: "card_declined" },
 	};
