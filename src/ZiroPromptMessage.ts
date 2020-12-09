@@ -38,15 +38,17 @@ export class ZiroPromptMessage<C, N, D = undefined> extends ZiroMessage<C, N, D>
 		this.secondButton = props.secondButton;
 		this.supportButton = props.supportButton;
 		this.withButtons = this.withButtons.bind(this);
+		this.withSupportButton = this.withSupportButton.bind(this);
 		this.set = this.set.bind(this);
 	}
 
-	withButtons(buttons: [Button] | [Button, Button]) {
+	withButtons(buttons: [Button] | [Button, Button] ) {
 		return new ZiroPromptMessage<C, N, D>({
 			...this.getData(),
 			isDefaultMessage: true,
 			firstButton: buttons[0],
 			secondButton: buttons[1],
+			supportButton: this.supportButton,
 		} as any);
 	}
 
@@ -54,6 +56,8 @@ export class ZiroPromptMessage<C, N, D = undefined> extends ZiroMessage<C, N, D>
 		return new ZiroPromptMessage<C, N, D>({
 			...this.getData(),
 			isDefaultMessage: true,
+			firstButton: this.firstButton,
+			secondButton: this.secondButton,
 			supportButton: button || true,
 		} as any);
 	}
