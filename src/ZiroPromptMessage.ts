@@ -13,7 +13,7 @@ interface ZiroPromptData {
 type Buttons = {
 	firstButton?: Button;
 	secondButton?: Button;
-	supportButton?: boolean;
+	supportButton?: boolean | Button;
 };
 
 export type ZiroPromptFullData<C, D = undefined> = ZiroData<C, D> & ZiroPromptData;
@@ -29,7 +29,7 @@ export class ZiroPromptMessage<C, N, D = undefined> extends ZiroMessage<C, N, D>
 
 	readonly secondButton?: Button;
 
-	readonly supportButton?: boolean;
+	readonly supportButton?: boolean | Button;
 
 	constructor(props: ZiroPromptProps<C, N, D>) {
 		super(props);
@@ -50,11 +50,11 @@ export class ZiroPromptMessage<C, N, D = undefined> extends ZiroMessage<C, N, D>
 		} as any);
 	}
 
-	withSupportButton() {
+	withSupportButton(button?: Button) {
 		return new ZiroPromptMessage<C, N, D>({
 			...this.getData(),
 			isDefaultMessage: true,
-			supportButton: true,
+			supportButton: button || true,
 		} as any);
 	}
 
