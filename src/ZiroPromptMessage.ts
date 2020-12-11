@@ -6,7 +6,7 @@ export type Button = {
 };
 
 interface ZiroPromptData {
-	userResolution: string;
+	userResolution: string | Object;
 	internalDescription: string;
 }
 
@@ -23,7 +23,7 @@ type ZiroPromptProps<C, N, D> = ZiroProps<C, N, D> & ZiroPromptData & Buttons;
 export class ZiroPromptMessage<C, N, D = undefined> extends ZiroMessage<C, N, D> implements ZiroPromptProps<C, N, D> {
 	private readonly $$promptMessage = true;
 
-	readonly userResolution: string;
+	readonly userResolution: string | Object;
 
 	readonly firstButton?: Button;
 
