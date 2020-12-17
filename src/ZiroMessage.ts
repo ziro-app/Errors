@@ -19,7 +19,10 @@ export type Illustration =
 	| "chatting"
 	| "onlinePosts"
 	| "selfieOne"
-	| "selfieTwo";
+	| "selfieTwo"
+	| "security"
+	| "securityTwo"
+	| "receipt";
 
 type GenericData = {
 	[key: string]: any;
