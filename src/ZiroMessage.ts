@@ -22,7 +22,8 @@ export type Illustration =
 	| "selfieTwo"
 	| "security"
 	| "securityTwo"
-	| "receipt";
+	| "receipt"
+	| "noteList";
 
 type GenericData = {
 	[key: string]: any;
