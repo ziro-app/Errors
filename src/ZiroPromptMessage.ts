@@ -13,6 +13,7 @@ interface ZiroPromptData {
 type Buttons = {
 	firstButton?: Button;
 	secondButton?: Button;
+	genericButton?: Button;
 	supportButton?: boolean | Button;
 };
 
@@ -29,6 +30,8 @@ export class ZiroPromptMessage<C, N, D = undefined> extends ZiroMessage<C, N, D>
 
 	readonly secondButton?: Button;
 
+	readonly genericButton?: Button;
+
 	readonly supportButton?: boolean | Button;
 
 	constructor(props: ZiroPromptProps<C, N, D>) {
@@ -36,9 +39,11 @@ export class ZiroPromptMessage<C, N, D = undefined> extends ZiroMessage<C, N, D>
 		this.userResolution = props.userResolution;
 		this.firstButton = props.firstButton;
 		this.secondButton = props.secondButton;
+		this.genericButton = props.genericButton;
 		this.supportButton = props.supportButton;
 		this.withButtons = this.withButtons.bind(this);
 		this.withSupportButton = this.withSupportButton.bind(this);
+		this.withGenericButton = this.withGenericButton.bind(this)
 		this.set = this.set.bind(this);
 	}
 
@@ -48,6 +53,18 @@ export class ZiroPromptMessage<C, N, D = undefined> extends ZiroMessage<C, N, D>
 			isDefaultMessage: true,
 			firstButton: buttons[0],
 			secondButton: buttons[1],
+			genericButton: this.genericButton,
+			supportButton: this.supportButton,
+		} as any);
+	}
+
+	withGenericButton(button?: Button) {
+		return new ZiroPromptMessage<C, N, D>({
+			...this.getData(),
+			isDefaultMessage: true,
+			firstButton: this.firstButton,
+			secondButton: this.secondButton,
+			genericButton: button,
 			supportButton: this.supportButton,
 		} as any);
 	}
@@ -58,6 +75,7 @@ export class ZiroPromptMessage<C, N, D = undefined> extends ZiroMessage<C, N, D>
 			isDefaultMessage: true,
 			firstButton: this.firstButton,
 			secondButton: this.secondButton,
+			genericButton: this.genericButton,
 			supportButton: button || true,
 		} as any);
 	}
