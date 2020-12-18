@@ -13,12 +13,12 @@ export const WRONG_TRANSACTION_VALUE: RegisterCardPromptData<"0001"> = {
 	CONFIRM_TRANSACTION: RegisterCardPromptData<"0002"> = {
 		code: "0002",
 		type: "destructive",
-		title: "Uma transação será enviada",
+		title: "Seu cartão irá expirar",
 		illustration: "paymentError",
 		userDescription:
-			"Uma transação de pequeno valor será enviada e estornada. Utilize o valor para validar seu cartão.",
-		userResolution: "Caso seu cartão expire após uma compra, utilize outro método de validação.",
-		internalDescription: "O usuário está requisitando uma nova transação",
+			"Ao cadastrar o cartão, você marcou que ele expira após uma compra. Iremos enviar uma transação de baixo valor na sua fatura, o que fará seu cartão expirar.",
+		userResolution: "Deseja continuar?",
+		internalDescription: "O usuário está requisitando uma nova transação com um cartão que expira após uma compra",
 		additionalData: undefined,
 	},
 	INITIAL_TRANSACTION: RegisterCardPromptData<"0003"> = {
